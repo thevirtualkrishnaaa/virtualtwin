@@ -10,8 +10,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Chart.js for data visualization -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
     <script>
         tailwind.config = {
@@ -54,7 +52,6 @@
             box-shadow: 0 0 30px rgba(16, 185, 129, 0.15);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 6px;
         }
@@ -72,14 +69,14 @@
 </head>
 <body class="font-sans antialiased text-slate-200">
 
-    <!-- Global API Configurations & Setup -->
     <script>
-        // Securely handle key & environment parameters
-        const apiKey = "AIzaSyAjq4BB8M5NS4kKp9Gr9nBCD5Tbd7k0h0M"; // Runtime-injected
+        // Insert your Google Gemini API key here if you wish to run the live cloud model.
+        // If left empty, the chatbot operates using your custom preloaded CV intelligence module.
+        const apiKey = ""; 
         const appId = typeof __app_id !== 'undefined' ? __app_id : 'saikrishna-portfolio';
     </script>
 
-    <!-- Top Navigation Bar -->
+    <!-- Navigation -->
     <nav class="fixed top-0 left-0 w-full z-50 glassmorphism border-b border-white/5 px-6 py-4">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <div class="flex items-center gap-3">
@@ -88,11 +85,10 @@
                 </div>
                 <div>
                     <span class="font-mono text-white font-bold tracking-tight text-md">SAIKRISHNA JELLA</span>
-                    <span class="hidden md:inline-block ml-2 px-2 py-0.5 rounded text-[10px] font-mono bg-accentGreen/10 text-accentGreen border border-accentGreen/20 uppercase tracking-widest">Virtual Clone v1.0</span>
+                    <span class="hidden md:inline-block ml-2 px-2 py-0.5 rounded text-[10px] font-mono bg-accentGreen/10 text-accentGreen border border-accentGreen/20 uppercase tracking-widest">Virtual Clone v2.1</span>
                 </div>
             </div>
             
-            <!-- Desk Navigation -->
             <div class="hidden md:flex items-center gap-8 font-mono text-sm">
                 <a href="#hero" class="hover:text-accentGreen transition">// Home</a>
                 <a href="#twin" class="hover:text-accentGreen transition text-accentGreen font-semibold animate-pulse">● Virtual Sai</a>
@@ -111,11 +107,9 @@
 
     <!-- Hero Showcase Header -->
     <section id="hero" class="relative pt-32 pb-20 px-6 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center min-h-[90vh]">
-        <!-- Background decorative mesh -->
         <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-accentGreen/5 rounded-full blur-[120px] pointer-events-none"></div>
         <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accentBlue/5 rounded-full blur-[120px] pointer-events-none"></div>
 
-        <!-- Left Intro details -->
         <div class="lg:col-span-7 space-y-6">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-xs text-accentGreen font-mono">
                 <span class="w-2 h-2 rounded-full bg-accentGreen animate-ping"></span>
@@ -131,7 +125,6 @@
                 I bridge the gap between complex analytical datasets and strategic business decisions. Blending an engineering foundation (<strong class="text-slate-200">B.Tech ECE</strong>) with an <strong class="text-slate-200">MSc in International Business Management</strong>, I develop robust recommendations using SQL, Excel modeling, and GenAI workflows.
             </p>
 
-            <!-- Quick Stats -->
             <div class="grid grid-cols-3 gap-4 pt-4 max-w-lg">
                 <div class="glassmorphism p-3.5 rounded-xl border border-white/5">
                     <div class="text-2xl font-bold text-white font-mono">10+</div>
@@ -147,7 +140,6 @@
                 </div>
             </div>
 
-            <!-- CTAs -->
             <div class="flex flex-wrap gap-4 pt-4">
                 <a href="#twin" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-bold shadow-lg shadow-emerald-500/10 flex items-center gap-2 transform active:scale-95 transition-all">
                     <i class="fa-solid fa-robot text-lg"></i> Talk to Virtual Sai
@@ -158,10 +150,8 @@
             </div>
         </div>
 
-        <!-- Right: Twin Interactive Interface Sneak-Peek / Status Card -->
         <div class="lg:col-span-5 relative">
             <div class="relative glassmorphism rounded-2xl border border-slate-800 p-6 glow-blue">
-                <!-- Top Status Header -->
                 <div class="flex justify-between items-center pb-4 border-b border-white/5">
                     <div class="flex items-center gap-3">
                         <div class="relative">
@@ -181,7 +171,6 @@
                     <span class="text-xs text-slate-500 font-mono bg-slate-900/50 px-2 py-1 rounded">London, UK</span>
                 </div>
 
-                <!-- Digital Matrix Profile Info -->
                 <div class="space-y-4 pt-4 text-xs font-mono">
                     <div class="bg-slate-950/60 p-3 rounded-lg border border-slate-800/50">
                         <span class="text-accentBlue">// Core Function</span>
@@ -232,11 +221,10 @@
                 
                 <!-- Left: AI Core Console Chat Box -->
                 <div class="lg:col-span-8 flex flex-col glassmorphism rounded-2xl border border-slate-800 overflow-hidden min-h-[550px]">
-                    <!-- Chat Header -->
                     <div class="bg-slate-950/80 px-6 py-4 border-b border-slate-850 flex justify-between items-center">
                         <div class="flex items-center gap-3">
                             <div class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse glow-green"></div>
-                            <span class="font-mono text-sm font-semibold text-slate-200">SAI_CLONE_v1.2.db</span>
+                            <span class="font-mono text-sm font-semibold text-slate-200">SAI_CLONE_v2.1.db</span>
                         </div>
                         <div class="flex gap-2">
                             <span class="h-2.5 w-2.5 rounded-full bg-slate-800"></span>
@@ -248,7 +236,7 @@
                     <!-- Chat Messages Output -->
                     <div id="chat-messages" class="flex-1 p-6 space-y-4 overflow-y-auto max-h-[380px] text-sm">
                         
-                        <!-- AI Message 1 -->
+                        <!-- Welcome message -->
                         <div class="flex gap-3 items-start">
                             <div class="w-8 h-8 rounded-lg bg-emerald-500/10 border border-accentGreen/20 flex items-center justify-center text-accentGreen shrink-0 mt-0.5">
                                 <i class="fa-solid fa-robot"></i>
@@ -287,7 +275,7 @@
                     </div>
                 </div>
 
-                <!-- Right: Clone System Monitor & Telemetry -->
+                <!-- Right: Clone System Monitor -->
                 <div class="lg:col-span-4 space-y-6 flex flex-col justify-between">
                     <div class="glassmorphism p-6 rounded-2xl border border-slate-800 space-y-6 flex-1">
                         <h3 class="font-mono text-xs text-accentGreen uppercase tracking-widest flex items-center gap-2">
@@ -295,15 +283,14 @@
                             Virtual Twin Settings
                         </h3>
                         
-                        <!-- Stats Grid -->
                         <div class="space-y-4">
                             <div>
                                 <div class="flex justify-between text-xs font-mono mb-1">
-                                    <span class="text-slate-400">Response Tone Accuracy</span>
-                                    <span class="text-accentGreen">99% (Analytical)</span>
+                                    <span class="text-slate-400">Response Mode</span>
+                                    <span class="text-accentGreen">Hybrid (Local / Cloud API)</span>
                                 </div>
                                 <div class="w-full h-1.5 bg-slate-950 rounded-full overflow-hidden">
-                                    <div class="h-full bg-gradient-to-r from-accentGreen to-teal-500 w-[99%]"></div>
+                                    <div class="h-full bg-gradient-to-r from-accentGreen to-teal-500 w-[100%]"></div>
                                 </div>
                             </div>
 
@@ -340,7 +327,6 @@
                             </div>
                         </div>
 
-                        <!-- Mini BA Challenge simulation triggers -->
                         <div class="border-t border-white/5 pt-4">
                             <span class="text-xs font-mono text-slate-400 block mb-2">// View Sandbox Solution:</span>
                             <div class="grid grid-cols-2 gap-2">
@@ -377,9 +363,7 @@
             
             <!-- Timeline Item 1 -->
             <div class="relative pl-8 sm:pl-12">
-                <!-- Dot node -->
                 <span class="absolute -left-3 top-1.5 w-6 h-6 rounded-full bg-slate-950 border-4 border-accentGreen flex items-center justify-center glow-green"></span>
-                <!-- Floating date box left -->
                 <div class="hidden md:block absolute -left-44 top-1.5 w-32 text-right font-mono text-xs text-accentGreen">
                     Oct 2025 - Present
                     <span class="block text-[10px] text-slate-500">London, UK</span>
@@ -398,7 +382,6 @@
                         <span class="px-2.5 py-1 rounded bg-accentGreen/10 text-accentGreen border border-accentGreen/20 text-xs font-mono">Resilience & SOP Execution</span>
                     </div>
 
-                    <!-- Strategic Framing of McDonald's Experience -->
                     <div class="p-3 bg-emerald-950/20 border border-emerald-500/10 rounded-xl text-xs text-slate-300 flex items-start gap-2.5">
                         <i class="fa-solid fa-circle-info text-accentGreen mt-0.5"></i>
                         <p>
@@ -421,9 +404,7 @@
 
             <!-- Timeline Item 2 -->
             <div class="relative pl-8 sm:pl-12">
-                <!-- Dot node -->
                 <span class="absolute -left-3 top-1.5 w-6 h-6 rounded-full bg-slate-950 border-4 border-accentBlue flex items-center justify-center glow-blue"></span>
-                <!-- Floating date box left -->
                 <div class="hidden md:block absolute -left-44 top-1.5 w-32 text-right font-mono text-xs text-accentBlue">
                     Jan 2024 - Jul 2025
                     <span class="block text-[10px] text-slate-500">India</span>
@@ -471,7 +452,6 @@
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
                 
-                <!-- Skill Deck Visual Breakdown -->
                 <div class="lg:col-span-6 space-y-8">
                     <div>
                         <span class="text-accentGreen font-mono text-xs uppercase tracking-widest block mb-2">// Skills & Capabilities</span>
@@ -481,9 +461,8 @@
                         </p>
                     </div>
 
-                    <!-- Skills Matrix Groups -->
+                    <!-- Skills Matrix -->
                     <div class="space-y-5">
-                        <!-- Group 1 -->
                         <div class="space-y-2">
                             <div class="flex justify-between items-center">
                                 <span class="font-mono text-sm text-slate-200"><i class="fa-solid fa-chart-line text-accentGreen mr-2"></i>Business Analysis & Mapping</span>
@@ -494,7 +473,6 @@
                             </div>
                         </div>
 
-                        <!-- Group 2 -->
                         <div class="space-y-2">
                             <div class="flex justify-between items-center">
                                 <span class="font-mono text-sm text-slate-200"><i class="fa-solid fa-file-excel text-accentBlue mr-2"></i>Data Analytics & Excel Engineering</span>
@@ -505,7 +483,6 @@
                             </div>
                         </div>
 
-                        <!-- Group 3 -->
                         <div class="space-y-2">
                             <div class="flex justify-between items-center">
                                 <span class="font-mono text-sm text-slate-200"><i class="fa-solid fa-database text-yellow-500 mr-2"></i>SQL Database Querying</span>
@@ -516,7 +493,6 @@
                             </div>
                         </div>
 
-                        <!-- Group 4 -->
                         <div class="space-y-2">
                             <div class="flex justify-between items-center">
                                 <span class="font-mono text-sm text-slate-200"><i class="fa-solid fa-brain text-purple-500 mr-2"></i>GenAI & Workflow Automation</span>
@@ -529,7 +505,7 @@
                     </div>
                 </div>
 
-                <!-- Right: Interactive Live Sandbox Simulation (Recruiter Test) -->
+                <!-- Live Sandbox Simulation -->
                 <div class="lg:col-span-6">
                     <div class="glassmorphism rounded-2xl border border-slate-800 p-6 space-y-4">
                         <div class="flex items-center justify-between pb-3 border-b border-white/5">
@@ -544,7 +520,7 @@
                             Hiring managers often ask: <em>"How does Saikrishna handle actual analytical requirements?"</em> Click a module below to run a sample interactive breakdown of how I write SQL or organize workflows.
                         </p>
 
-                        <!-- Sandbox Selector Navigation -->
+                        <!-- Navigation -->
                         <div class="flex gap-2">
                             <button onclick="toggleSandboxTab('sql-sandbox')" id="btn-sql-sandbox" class="flex-1 py-2 rounded-lg bg-slate-900 border border-slate-800 text-xs font-mono text-accentGreen font-semibold transition">
                                 <i class="fa-solid fa-database mr-1"></i> SQL Query
@@ -554,7 +530,7 @@
                             </button>
                         </div>
 
-                        <!-- Sandbox SQL Content -->
+                        <!-- SQL Sandbox Content -->
                         <div id="tab-sql-sandbox" class="space-y-3">
                             <div class="bg-slate-950 p-4 rounded-xl border border-slate-900 text-xs font-mono text-slate-300 overflow-x-auto">
                                 <span class="text-slate-500 block mb-2">-- Scenario: Clean and map customer account sales databases</span>
@@ -570,7 +546,7 @@
                             </div>
                         </div>
 
-                        <!-- Sandbox Requirements Content -->
+                        <!-- Requirements Sandbox Content -->
                         <div id="tab-requirements-sandbox" class="space-y-3 hidden">
                             <div class="bg-slate-950 p-4 rounded-xl border border-slate-900 text-xs font-mono text-slate-300 space-y-2">
                                 <div class="text-accentGreen"># GAP ANALYSIS MATRIX: Gen-Z App Launch</div>
@@ -606,7 +582,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch mb-12">
             
             <!-- Project 1 Card: Fin-Copilot -->
-            <div class="lg:col-span-6 glassmorphism rounded-2xl border border-slate-850 p-6 flex flex-col justify-between space-y-6">
+            <div class="lg:col-span-6 glassmorphism rounded-2xl border border-slate-855 p-6 flex flex-col justify-between space-y-6">
                 <div class="space-y-4">
                     <div class="flex justify-between items-start">
                         <div class="h-12 w-12 rounded-xl bg-accentBlue/10 border border-accentBlue/20 flex items-center justify-center text-accentBlue text-xl">
@@ -631,7 +607,7 @@
             </div>
 
             <!-- Project 2 Card: Alpha District -->
-            <div class="lg:col-span-6 glassmorphism rounded-2xl border border-slate-850 p-6 flex flex-col justify-between space-y-6">
+            <div class="lg:col-span-6 glassmorphism rounded-2xl border border-slate-855 p-6 flex flex-col justify-between space-y-6">
                 <div class="space-y-4">
                     <div class="flex justify-between items-start">
                         <div class="h-12 w-12 rounded-xl bg-accentGreen/10 border border-accentGreen/20 flex items-center justify-center text-accentGreen text-xl">
@@ -657,7 +633,7 @@
 
         </div>
 
-        <!-- Dynamic Sandbox UI: Alpha District Real-time Budget Engine -->
+        <!-- Sandbox UI: Financial Runway Simulation -->
         <div class="glassmorphism rounded-2xl border border-slate-800 p-6 sm:p-8 space-y-6">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/5 pb-4">
                 <div class="flex items-center gap-3">
@@ -675,7 +651,6 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
-                <!-- Inputs -->
                 <div class="md:col-span-6 space-y-6">
                     <div>
                         <div class="flex justify-between items-center mb-2">
@@ -714,7 +689,6 @@
                     </div>
                 </div>
 
-                <!-- Outputs Display -->
                 <div class="md:col-span-6 bg-slate-950/80 rounded-xl p-5 border border-slate-900 flex flex-col justify-between space-y-4">
                     <h5 class="text-xs font-mono text-accentBlue">// Calculated Forecast Outputs:</h5>
                     
@@ -742,7 +716,6 @@
     <section class="py-24 px-6 bg-gradient-to-b from-darkBg to-slate-950">
         <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
             
-            <!-- Left Academic Path -->
             <div class="lg:col-span-7 space-y-6">
                 <div>
                     <span class="text-accentGreen font-mono text-xs uppercase tracking-widest block mb-2">// Academic Foundations</span>
@@ -778,7 +751,6 @@
                 </div>
             </div>
 
-            <!-- Right Certifications Stack -->
             <div class="lg:col-span-5 space-y-6">
                 <div>
                     <span class="text-accentBlue font-mono text-xs uppercase tracking-widest block mb-2">// Professional Accreditations</span>
@@ -815,7 +787,7 @@
         </div>
     </section>
 
-    <!-- Communication Hub / Contact Station -->
+    <!-- Communication Hub -->
     <section id="contact" class="py-24 px-6 max-w-5xl mx-auto">
         <div class="glassmorphism rounded-3xl border border-slate-800 p-8 sm:p-12 text-center space-y-8 relative overflow-hidden">
             <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-accentGreen via-accentBlue to-purple-500"></div>
@@ -824,26 +796,23 @@
                 <span class="text-accentGreen font-mono text-xs uppercase tracking-widest block">// Open Channels</span>
                 <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Let's Synthesize Value</h2>
                 <p class="text-slate-400 text-sm">
-                    I am actively seeking Business Analyst, Strategy Analyst, and Junior Consultant internships or full-time roles in London and remotely. Let's arrange a interview to test my analytical execution!
+                    I am actively seeking Business Analyst, Strategy Analyst, and Junior Consultant internships or full-time roles in London and remotely. Let's arrange an interview to test my analytical execution!
                 </p>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto pt-4">
-                <!-- Phone -->
                 <div class="glassmorphism p-4 rounded-xl border border-slate-850 space-y-2">
                     <i class="fa-solid fa-phone text-accentGreen text-lg"></i>
                     <span class="block text-xs font-mono text-slate-400">Call Directly</span>
                     <a href="tel:07823694370" class="block text-sm font-bold text-white hover:text-accentGreen transition font-mono">07823 694370</a>
                 </div>
 
-                <!-- Email -->
                 <div class="glassmorphism p-4 rounded-xl border border-slate-850 space-y-2 relative">
                     <i class="fa-solid fa-envelope text-accentBlue text-lg"></i>
                     <span class="block text-xs font-mono text-slate-400">Professional Email</span>
                     <a href="mailto:saikrishnajella09@gmail.com" class="block text-xs font-bold text-white hover:text-accentBlue transition truncate font-mono">saikrishnajella09@gmail.com</a>
                 </div>
 
-                <!-- LinkedIn -->
                 <div class="glassmorphism p-4 rounded-xl border border-slate-850 space-y-2">
                     <i class="fa-brands fa-linkedin text-cyan-400 text-lg"></i>
                     <span class="block text-xs font-mono text-slate-400">LinkedIn Network</span>
@@ -851,7 +820,6 @@
                 </div>
             </div>
 
-            <!-- Secure Clipboard / Utility Buttons -->
             <div class="flex flex-wrap justify-center gap-4 pt-4 text-xs font-mono">
                 <button onclick="copyToClipboard('saikrishnajella09@gmail.com')" class="px-4 py-2 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-300 transition flex items-center gap-2">
                     <i class="fa-solid fa-copy text-accentGreen"></i> Copy Email
@@ -875,7 +843,6 @@
 
     <!-- Logic Scripting for Interactive Tools -->
     <script>
-        // Copy to clipboard fallback logic for iframe constraints
         function copyToClipboard(text) {
             const textarea = document.createElement('textarea');
             textarea.value = text;
@@ -891,7 +858,6 @@
             }, 3000);
         }
 
-        // Toggle Skills Sandbox Tabs
         function toggleSandboxTab(tabId) {
             document.getElementById('tab-sql-sandbox').classList.add('hidden');
             document.getElementById('tab-requirements-sandbox').classList.add('hidden');
@@ -904,17 +870,14 @@
 
         function triggerBaScenario(type) {
             toggleSandboxTab(type + '-sandbox');
-            const messagesContainer = document.getElementById('chat-messages');
-            
-            // Add custom visual trigger update inside chat log
             let triggerText = type === 'sql' ? "Show me how you analyze sales database sets with SQL." : "How do you construct user journeys and gap analyses?";
             addChatMessage('You', triggerText, false);
             
             let replyText = "";
             if (type === 'sql') {
-                replyText = "I've loaded my SQL clean scenario! In my previous work, structuring querying routines helped segment high-performing targets easily. Check the console sandbox breakdown on the right!";
+                replyText = "I have loaded my SQL clean scenario! In my previous work, structuring querying routines helped segment high-performing targets easily. Check the console sandbox breakdown on the right!";
             } else {
-                replyText = "Gap analysis mapping updated! It tracks the current and target architectures. This mirrors our strategy research frameworks at the University of East London.";
+                replyText = "Gap analysis mapping updated! It tracks the current (As-Is) and target (To-Be) architectures. This mirrors our strategy research frameworks at the University of East London.";
             }
             
             setTimeout(() => {
@@ -922,31 +885,26 @@
             }, 500);
         }
 
-        // Dynamic Interactive Business Simulator calculator logic
         function runFinancialSim() {
             const capital = parseFloat(document.getElementById('input-capital').value);
             const burn = parseFloat(document.getElementById('input-burn').value);
             const margin = parseFloat(document.getElementById('input-margin').value) / 100;
 
-            // Simple strategic metrics formulas
             const runway = (capital / burn).toFixed(1);
             const productionCover = (capital * margin).toFixed(0);
 
-            // Update DOM labels
             document.getElementById('label-capital').innerText = '£' + capital.toLocaleString();
             document.getElementById('label-burn').innerText = '£' + burn.toLocaleString();
             document.getElementById('label-margin').innerText = (margin * 100) + '%';
 
-            // Update DOM output calculations
             document.getElementById('output-runway').innerText = runway + ' Months';
             document.getElementById('output-production').innerText = '£' + parseFloat(productionCover).toLocaleString();
         }
 
-        // Run calculation on initial launch
         runFinancialSim();
     </script>
 
-    <!-- Virtual Twin Live Conversational Engine (Client-Side Gemini API Call) -->
+    <!-- Virtual Twin Live Conversational Engine (Silent Hybrid Client-Side Brain) -->
     <script>
         const systemPrompt = `You are the Virtual Twin of Saikrishna Jella (Sai), a highly analytical and structured Business Analyst pursuing his MSc in International Business Management at the University of East London (UEL).
 Your role is to represent Sai to hiring managers, corporate recruiters, and business stakeholders. Respond in an analytical, friendly, clear, and professional tone.
@@ -962,23 +920,51 @@ Sai's Background & Core facts:
 - Key Projects:
   * Alpha District (MSc Coursework): Gymwear business plan, automated market intelligence workflows using custom prompt frameworks.
   * Fin-Copilot (Personal Project): Data conceptual tool matching Excel datasets with simplified visual analytics.
-- Key Skills: Advanced Excel (Pivot tables, VLOOKUP/XLOOKUP), SQL querying logic, competitive intelligence analysis, requirements gathering, SOP alignment, structured reports.
+- Key Skills: Advanced Excel (Pivot tables, VLOOKUP/XLOOKUP), SQL querying logic, competitive intelligence analysis, requirements gathering, SOP alignment, structured reports.`;
 
-If users ask non-professional questions, steer them back politely to Sai's credentials, internships, or skills. Remember the current year is 2026.`;
-
-        // Preloaded fallback responses if API is offline or not injected
-        const fallbackSolutions = {
-            "why should we hire you as a business analyst?": "You should hire me because I bridge data structures with executive business decisions. Combining an engineering foundation (B.Tech ECE) with my ongoing MSc in International Business Management at UEL, I bring deep Excel modeling, foundational SQL, and GenAI skills to analyze complex databases. My dual experience in corporate benchmarking (Intellogi) and high-volume, high-pressure UK operations (McDonald's) means I adapt rapidly, work under tight compliance guidelines, and build excellent stakeholder narratives.",
-            "explain your experience at intellogi technologies.": "At Intellogi Technologies (Jan 2024 - Jul 2025), I served as a Business Development Associate. I was responsible for competitor benchmarking, requirement gathering, and dataset curation across 10+ core client accounts. By developing advanced pipeline Excel trackers, I managed to increase prospective lead qualification by 15%. I also drafted corporate workflows, ensuring documentation standards remained precise.",
-            "how does your mcdonald's london experience translate to corporate business analysis?": "Working at McDonald's Enfield in London (Oct 2025 - Present) has been highly formative. It demonstrates my active adaptability and work ethic. I operate in a high-volume, compliance-driven framework, handling 200+ customers daily under strict timelines. In terms of Business Analysis, this translates directly to high-pressure multitasking, strict SOP adherence, fast-paced conflict resolution, and cross-functional team alignment.",
-            "tell me about your fin-copilot concept.": "Fin-Copilot is a personal concept of mine. It addresses a common BA problem: non-technical users struggle to interpret complex spreadsheets. Fin-Copilot uses advanced Excel formulas paired with GenAI logic models to instantly read, clean, and summarize spreadsheets into high-impact visual summaries, ensuring executives understand critical metrics instantly.",
-            "do you know sql?": "Yes! I have a solid foundation in SQL. I write queries using SELECT, filtering datasets via WHERE/HAVING, joining tables to clean pipelines, and aggregating data with SUM/COUNT/GROUP BY. I often use SQL logic to extract clear pipeline metrics from databases.",
-            "default": "That's an excellent question! As an MSc International Business Management student at UEL with a B.Tech in ECE, I focus on data-driven strategy and business intelligence. Whether it's crafting user mapping documents, analyzing pipelines with Excel/SQL, or automating business workflows with GenAI, I can deliver high-quality analytical outputs. Feel free to contact me directly at saikrishnajella09@gmail.com!"
-        };
+        // Offline Semantic Fallback Responses for perfect client-side execution
+        function getOfflineResponse(query) {
+            const q = query.toLowerCase();
+            
+            if (q.includes('hire') || q.includes('why') || q.includes('choose') || q.includes('fit') || q.includes('benefit')) {
+                return "You should hire me because I bridge analytical datasets with commercial decisions. Combining an engineering foundation (B.Tech ECE) with my ongoing MSc in International Business Management at UEL, I bring deep Excel modeling, foundational SQL, and GenAI skills to clean databases and extract insights. My dual experience in corporate benchmarking (Intellogi) and high-volume, high-pressure UK operations (McDonald's) means I adapt rapidly, work under tight compliance guidelines, and build clear summaries for stakeholders.";
+            }
+            if (q.includes('intellogi') || q.includes('associate') || q.includes('development') || q.includes('india')) {
+                return "At Intellogi Technologies (Jan 2024 - Jul 2025), I served as a Business Development Associate. I was responsible for competitor benchmarking, requirement gathering, and dataset curation across 10+ core client accounts. By developing advanced pipeline Excel trackers, I managed to increase prospective lead qualification by 15%. I also drafted corporate workflows, ensuring documentation standards remained precise.";
+            }
+            if (q.includes('mcdonald') || q.includes('mcd') || q.includes('crew') || q.includes('enfield') || q.includes('operational') || q.includes('hustle')) {
+                return "Working at McDonald's Enfield in London (Oct 2025 - Present) has been highly formative. It demonstrates my active adaptability and work ethic. I operate in a high-volume, compliance-driven framework, handling 200+ customers daily under strict timelines. In terms of Business Analysis, this translates directly to high-pressure multitasking, strict SOP adherence, fast-paced conflict resolution, and cross-functional team alignment.";
+            }
+            if (q.includes('project') || q.includes('alpha') || q.includes('district') || q.includes('gymwear') || q.includes('athleisure')) {
+                return "My 'Alpha District' project was developed as part of my MSc coursework at UEL. It is a complete startup business plan and pitch deck for a Gen-Z gymwear brand. I conducted competitor audits, designed the unit economics model in Excel, and applied AI prompt engineering to automate market research pipelines.";
+            }
+            if (q.includes('copilot') || q.includes('fin') || q.includes('finance') || q.includes('spreadsheet')) {
+                return "Fin-Copilot is a personal concept of mine. It addresses a common BA problem: non-technical users struggle to interpret complex spreadsheets. Fin-Copilot uses advanced Excel formulas paired with GenAI logic models to instantly read, clean, and summarize spreadsheets into high-impact visual summaries, ensuring executives understand critical metrics instantly.";
+            }
+            if (q.includes('sql') || q.includes('database') || q.includes('query')) {
+                return "I have a solid foundation in SQL! I write queries using SELECT, filtering datasets via WHERE/HAVING, joining tables to clean pipelines, and aggregating data with SUM/COUNT/GROUP BY. I often use SQL logic to extract clear pipeline metrics from databases. You can see a live query syntax in the 'BA Sandbox Simulation' on the right side of the screen!";
+            }
+            if (q.includes('excel') || q.includes('vlookup') || q.includes('pivot') || q.includes('xlookup')) {
+                return "Excel is one of my strongest core tools. I am highly proficient with advanced formulas like VLOOKUP, XLOOKUP, INDEX/MATCH, Pivot Tables, data cleaning, and creating executive-ready charting models. I've certified these skills through LinkedIn Learning and applied them directly to increase qualified leads by 15% at Intellogi.";
+            }
+            if (q.includes('education') || q.includes('study') || q.includes('uel') || q.includes('university') || q.includes('degree') || q.includes('b.tech') || q.includes('electronics')) {
+                return "I hold a B.Tech in Electronics & Communication Engineering from India (2020-2023), which gave me a very strong logical and analytical foundation. Currently, I am pursuing my MSc in International Business Management at the University of East London (UEL), focusing on data-driven business strategy, global leadership, and digital network architectures.";
+            }
+            if (q.includes('skill') || q.includes('competency') || q.includes('tool') || q.includes('power bi')) {
+                return "My core competencies span: \n\n• **Business Analysis:** Requirements gathering, process mapping, and stakeholder documentation.\n• **Data Analysis:** Advanced Excel (Pivot tables, lookup formulas), foundational SQL database queries, and foundational Power BI.\n• **Research:** Competitor benchmarking, market intelligence, and due diligence.\n• **Modern workflows:** ChatGPT and GenAI prompt engineering.";
+            }
+            if (q.includes('contact') || q.includes('email') || q.includes('phone') || q.includes('call') || q.includes('linkedin')) {
+                return "I'd love to connect! You can reach me directly at saikrishnajella09@gmail.com, call me at 07823 694370, or find me on LinkedIn at linkedin.com/in/saikrishnajella09. All my contact channels are listed in the 'Open Channels' section at the bottom of the page.";
+            }
+            if (q.includes('hello') || q.includes('hi') || q.includes('hey') || q.includes('greetings')) {
+                return "Hello! I'm Saikrishna's virtual clone. I'm ready to walk you through my business intelligence projects, SQL database foundations, or explain my academic journey at UEL in London. What would you like to evaluate today?";
+            }
+            
+            return "That's a great question! I'm operating on my local CV offline-intelligence model. My background blends a B.Tech engineering degree with an MSc in International Business Management from UEL. I specialize in turning complex datasets into strategic insights. Would you like to know about my SQL skills, my work at Intellogi, my McDonald's UK operational experience, or my startup projects?";
+        }
 
         function addChatMessage(sender, text, isAi) {
             const chatBox = document.getElementById('chat-messages');
-            
             const outerDiv = document.createElement('div');
             outerDiv.className = "flex gap-3 items-start " + (isAi ? "" : "justify-end");
 
@@ -988,7 +974,7 @@ If users ask non-professional questions, steer them back politely to Sai's crede
                 </div>` : '';
 
             const messageHtml = `
-                <div class="${isAi ? 'bg-slate-900/75 border border-slate-800 text-slate-200' : 'bg-accentGreen text-slate-950 font-medium'} px-4 py-3 rounded-2xl ${isAi ? 'rounded-tl-none' : 'rounded-tr-none'} max-w-[85%] leading-relaxed">
+                <div class="${isAi ? 'bg-slate-900/75 border border-slate-800 text-slate-200' : 'bg-accentGreen text-slate-950 font-medium'} px-4 py-3 rounded-2xl ${isAi ? 'rounded-tl-none' : 'rounded-tr-none'} max-w-[85%] leading-relaxed shadow-sm">
                     <p class="font-bold text-[10px] ${isAi ? 'text-accentGreen' : 'text-slate-950/80'} font-mono mb-1 uppercase tracking-wider">${sender}</p>
                     <p class="text-xs sm:text-sm whitespace-pre-line">${text}</p>
                 </div>
@@ -1009,11 +995,9 @@ If users ask non-professional questions, steer them back politely to Sai's crede
             const userQuery = inputEl.value.trim();
             if (!userQuery) return;
 
-            // Display user message
             addChatMessage('You', userQuery, false);
             inputEl.value = '';
 
-            // Loading state message
             const loadingDiv = document.createElement('div');
             loadingDiv.className = "flex gap-3 items-start";
             loadingDiv.id = "chat-loading-temp";
@@ -1029,8 +1013,7 @@ If users ask non-professional questions, steer them back politely to Sai's crede
             document.getElementById('chat-messages').scrollTop = document.getElementById('chat-messages').scrollHeight;
 
             try {
-                // If API Key is configured runtime
-                if (apiKey) {
+                if (apiKey && apiKey !== "") {
                     const response = await fetchWithRetry(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
@@ -1043,40 +1026,34 @@ If users ask non-professional questions, steer them back politely to Sai's crede
                     const result = await response.json();
                     const aiText = result.candidates?.[0]?.content?.parts?.[0]?.text;
                     
-                    document.getElementById('chat-loading-temp').remove();
+                    const loader = document.getElementById('chat-loading-temp');
+                    if (loader) loader.remove();
+
                     if (aiText) {
                         addChatMessage('Virtual Sai', aiText, true);
                     } else {
-                        throw new Error("Empty response");
+                        throw new Error("Empty API output");
                     }
                 } else {
-                    // Local Intelligent Fallback Module (Highly tailored matching for the CV)
+                    // Fall back instantly and silently to the on-board NLP Matcher
                     setTimeout(() => {
-                        document.getElementById('chat-loading-temp').remove();
-                        const normalizedQuery = userQuery.toLowerCase().trim();
-                        let found = false;
-                        
-                        for (const key in fallbackSolutions) {
-                            if (normalizedQuery.includes(key)) {
-                                addChatMessage('Virtual Sai', fallbackSolutions[key], true);
-                                found = true;
-                                break;
-                            }
-                        }
-                        
-                        if (!found) {
-                            addChatMessage('Virtual Sai', fallbackSolutions['default'], true);
-                        }
-                    }, 800);
+                        const loader = document.getElementById('chat-loading-temp');
+                        if (loader) loader.remove();
+                        const offlineReply = getOfflineResponse(userQuery);
+                        addChatMessage('Virtual Sai', offlineReply, true);
+                    }, 600);
                 }
             } catch (error) {
-                console.error("API Call error:", error);
-                document.getElementById('chat-loading-temp').remove();
-                addChatMessage('Virtual Sai', "System Connection Warning: I encountered a brief network delay, but here is my compiled knowledge: I am Saikrishna, currently pursuing MSc International Business Management at UEL in London. My main skill set involves translating database assets into commercial strategy dashboards using advanced Excel, SQL, and business mapping workflows.", true);
+                console.warn("API direct call failed, activating robust local fallback:", error);
+                const loader = document.getElementById('chat-loading-temp');
+                if (loader) loader.remove();
+                
+                // Keep UI smooth by calling on-board logic on failure
+                const offlineReply = getOfflineResponse(userQuery);
+                addChatMessage('Virtual Sai', offlineReply, true);
             }
         }
 
-        // Exponential backoff runner helper
         async function fetchWithRetry(url, options, retries = 5, delay = 1000) {
             try {
                 const res = await fetch(url, options);
