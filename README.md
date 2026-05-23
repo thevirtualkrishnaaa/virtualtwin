@@ -4,7 +4,7 @@ Welcome to my interactive portfolio repository! This project is a next-generatio
 
 Rather than presenting a static CV, this space allows recruiters, hiring managers, and collaborators to interact directly with an AI clone trained on my professional journey, query sample databases live, and run financial runway simulations based on my business case studies.
 
-👉 Live Demo: Click here to interact with my Virtual Twin! (Replace with your actual live link once deployed)
+👉 Live Demo: Click here to interact with my Virtual Twin! ( https://thevirtualkrishnaaa.github.io/virtualtwin/ )
 
 🌟 Key Features
 
