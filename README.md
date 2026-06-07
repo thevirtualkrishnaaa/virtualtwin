@@ -1,72 +1,119 @@
-🤖 Saikrishna Jella | Virtual Twin & Business Analyst Portfolio
-
-Welcome to my interactive portfolio repository! This project is a next-generation, responsive single-page application that serves as my digital twin and a playground for my analytical workflows.
-
-Rather than presenting a static CV, this space allows recruiters, hiring managers, and collaborators to interact directly with an AI clone trained on my professional journey, query sample databases live, and run financial runway simulations based on my business case studies.
-
-👉 Live Demo: Click here to interact with my Virtual Twin! ( https://thevirtualkrishnaaa.github.io/virtualtwin/ )
-
-🌟 Key Features
-
-1. 💬 AI-Powered Virtual Twin
-
-An interactive conversational chatbot trained directly on my professional summary, technical competencies, international education (MSc at UEL), and operational experience.
-
-Built to answer interview-prep questions, discuss my previous strategies at Intellogi Technologies, and explain how high-volume customer interaction at McDonald's UK builds exceptional corporate resilience.
-
-Integrated with Google's Gemini API for live, real-time context generation.
-
-2. 📊 Interactive BA Sandbox Simulation
-
-SQL Query Console: Demonstrates my database reasoning. Visitors can run sample aggregate queries (SELECT, GROUP BY, HAVING) on sales pipeline databases.
-
-Requirements Mapping (As-Is / To-Be): Shows my approach to business process modeling, gap analysis, and user journeys based on automation frameworks.
-
-3. 📉 Startup Budget & Runway Simulation Engine
-
-An interactive, client-side calculator modeled on my Alpha District MSc coursework project.
-
-Allows users to modify seed capital, monthly ad spend, and gross margins using visual slider scales to instantly calculate runway metrics.
-
-🛠️ Technology Stack
-
-Frontend Architecture: HTML5, CSS3, Tailwind CSS (for rapid utility-first responsiveness)
-
-Icons & Typography: FontAwesome 6, Google Fonts (Plus Jakarta Sans & Space Grotesk)
-
-Live Calculations: Native ES6 JavaScript
-
-AI Integration: Google Gemini API Client-Side Client (gemini-2.5-flash-preview-09-2025)
-
-🚀 Setting Up the Live Chatbot (API Integration)
-
-The portfolio functions out-of-the-box with a smart, offline fallback system. To connect my Virtual Twin to a live Google Gemini brain:
-
-Obtain a free API Key from Google AI Studio.
-
-Open index.html and locate the configuration variable:
-
-const apiKey = ""; // Insert your key inside the quotation marks
-
-
-Commit and push the changes back to your GitHub repository.
-
-📂 Project Structure
-
-├── index.html     # Main application file (all logic, styling, and markup)
-└── README.md      # Project documentation and showcase
-
-
-✍️ About Me
-
-🎓 MSc International Business Management | University of East London (UEL), UK
-
-🎓 B.Tech - Electronics & Communication Engineering | India
-
-💼 Core Expertise: Business Analysis, Competitor Benchmarking, Process Documentation, Excel Analytics, Foundational SQL, Generative AI Workflows.
-
-📍 Location: London, UK
-
-✉️ Email: saikrishnajella09@gmail.com
-
-🔗 LinkedIn: linkedin.com/in/saikrishnajella09
+# 🧠 Virtual Twin — Saikrishna Jella's Interactive Portfolio
+ 
+> A personal portfolio with a built-in AI Virtual Twin — a conversational agent trained on my professional history, academic background, and career goals. Ask it anything a recruiter would.
+ 
+**[🔗 Live Demo → thevirtualkrishnaaa.github.io/virtualtwin](https://thevirtualkrishnaaa.github.io/virtualtwin)**
+ 
+---
+ 
+## What Is This?
+ 
+This is my professional portfolio and personal showcase project, built entirely with vanilla HTML, CSS, and JavaScript — no frameworks, no build tools, no dependencies.
+ 
+The standout feature is the **Virtual Twin**: an in-browser conversational agent preloaded with a domain-specific knowledge base covering my work experience, MSc coursework, analytical projects, skills, and job search. Recruiters and collaborators can interact with it directly on the page.
+ 
+---
+ 
+## Features
+ 
+- **Virtual Twin Chat** — Knowledge-base-driven conversational agent answering recruiter questions about my background, with typing indicators and quick-question chips
+- **Clean Minimal Design** — Professional layout built for LinkedIn sharing and recruiter visits; no gimmicks, no jargon
+- **Fully Responsive** — Works on mobile, tablet, and desktop
+- **Zero Dependencies** — Single HTML file; deploys instantly to GitHub Pages with no build step
+- **Interactive Sections** — Experience timeline, skills grid, project cards, education, certifications, and a contact form
+- **Formspree-ready Contact Form** — Drop in your Formspree ID and it works
+---
+ 
+## Tech Stack
+ 
+| Layer | Choice | Why |
+|---|---|---|
+| Markup | HTML5 | Single-file simplicity |
+| Styling | Vanilla CSS (custom properties) | No framework overhead |
+| Logic | Vanilla JavaScript | Zero bundle size |
+| Font | Inter via Google Fonts | Clean, professional |
+| Hosting | GitHub Pages | Free, instant, reliable |
+| Contact Form | Formspree | No backend needed |
+ 
+---
+ 
+## Project Structure
+ 
+```
+virtualtwin/
+├── index.html        ← Full portfolio (all HTML, CSS, JS in one file)
+├── README.md         ← This file
+└── assets/
+    ├── photo.jpg     ← Profile photo (add yours here)
+    └── cv.pdf        ← Your CV/resume (add yours here)
+```
+ 
+---
+ 
+## How to Customise
+ 
+### 1. Add your profile photo
+Replace the `SJ` initials placeholder in `index.html`:
+```html
+<!-- Find this: -->
+SJ
+ 
+<!-- Replace with: -->
+<img src="assets/photo.jpg" alt="Saikrishna Jella">
+```
+ 
+### 2. Link your CV
+Search for `YOUR_CV_LINK_HERE` (appears twice) and replace with:
+- A direct link to your PDF in this repo: `assets/cv.pdf`
+- Or a Google Drive / OneDrive shareable link
+### 3. Activate the contact form
+1. Sign up free at [formspree.io](https://formspree.io)
+2. Create a new form and copy your form ID
+3. In `index.html`, find:
+   ```html
+   action="https://formspree.io/f/YOUR_FORM_ID"
+   ```
+4. Replace `YOUR_FORM_ID` with your actual ID
+### 4. Extend the Virtual Twin knowledge base
+In `index.html`, find the `KB` array in the `<script>` section. Add new entries:
+```js
+{
+    keys: ['your', 'trigger', 'words'],
+    r: "Your response text here."
+}
+```
+ 
+---
+ 
+## Deployment (GitHub Pages)
+ 
+This repo is already configured to deploy via GitHub Pages. Any push to `main` updates the live site automatically.
+ 
+To deploy from scratch:
+```bash
+git clone https://github.com/thevirtualkrishnaaa/virtualtwin.git
+cd virtualtwin
+# Replace files with your updated versions
+git add .
+git commit -m "Update portfolio"
+git push origin main
+```
+ 
+---
+ 
+## About the Virtual Twin Concept
+ 
+The Virtual Twin is a pattern I designed to let recruiters and collaborators get honest, grounded answers about my background without requiring a live conversation. It uses a keyword-matched knowledge base (not a language model API) — this means it works with zero cost, zero latency, and no API keys required.
+ 
+The knowledge base covers: work experience, academic modules, analytical projects, SQL & Excel skills, GenAI workflows, certifications, and career objectives.
+ 
+---
+ 
+## Contact
+ 
+- **Email:** saikrishnajella09@gmail.com
+- **LinkedIn:** [linkedin.com/in/saikrishnajella09](https://linkedin.com/in/saikrishnajella09)
+- **Location:** London, UK — open to roles in London and remotely
+---
+ 
+*Built by Saikrishna Jella · 2026 · Vanilla HTML/CSS/JS · Hosted on GitHub Pages*
