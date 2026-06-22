@@ -1,813 +1,421 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saikrishna Jella | Business Analyst & Strategy</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; color: #0f172a; background: #ffffff; line-height: 1.6; }
- 
-        :root {
-            --primary: #2563eb;
-            --primary-light: #eff6ff;
-            --text: #0f172a;
-            --text-muted: #64748b;
-            --border: #e2e8f0;
-            --bg-light: #f8fafc;
-        }
- 
-        /* Nav */
-        nav {
-            position: fixed; top: 0; width: 100%;
-            background: rgba(255,255,255,0.96); backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border); z-index: 1000;
-            padding: 0 2rem; height: 64px;
-            display: flex; align-items: center; justify-content: space-between;
-        }
-        .nav-logo { font-weight: 700; font-size: 1.1rem; color: var(--text); text-decoration: none; }
-        .nav-logo span { color: var(--primary); }
-        .nav-links { display: flex; gap: 2rem; list-style: none; }
-        .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
-        .nav-links a:hover { color: var(--primary); }
-        .nav-cta { background: var(--primary); color: #fff !important; padding: 0.45rem 1.1rem; border-radius: 6px; }
-        .nav-cta:hover { background: #1d4ed8 !important; }
- 
-        /* Sections */
-        section { padding: 5rem 2rem; }
-        .container { max-width: 1000px; margin: 0 auto; }
-        .section-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--primary); margin-bottom: 0.6rem; }
-        .section-title { font-size: 1.875rem; font-weight: 700; color: var(--text); margin-bottom: 0.75rem; }
-        .section-desc { color: var(--text-muted); max-width: 600px; margin-bottom: 3rem; font-size: 0.95rem; }
- 
-        /* Hero */
-        #hero { min-height: 100vh; display: flex; align-items: center; padding-top: 64px; background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%); }
-        .hero-content { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 240px; gap: 4rem; align-items: center; width: 100%; }
-        .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: #dcfce7; color: #166534; font-size: 0.78rem; font-weight: 600; padding: 0.35rem 0.875rem; border-radius: 100px; margin-bottom: 1.5rem; }
-        .hero-badge::before { content: ''; width: 8px; height: 8px; background: #22c55e; border-radius: 50%; animation: pulse 2s infinite; }
-        @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.35} }
-        h1.hero-name { font-size: 3rem; font-weight: 700; line-height: 1.15; margin-bottom: 1rem; }
-        h1.hero-name span { color: var(--primary); }
-        .hero-tagline { font-size: 1.05rem; color: var(--text-muted); max-width: 500px; margin-bottom: 2rem; line-height: 1.75; }
-        .hero-stats { display: flex; gap: 2.5rem; margin-bottom: 2.25rem; }
-        .hero-stat-num { font-size: 1.5rem; font-weight: 700; color: var(--text); }
-        .hero-stat-label { font-size: 0.72rem; color: var(--text-muted); }
-        .hero-btns { display: flex; gap: 0.75rem; flex-wrap: wrap; }
-        .btn-primary { background: var(--primary); color: #fff; padding: 0.7rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.875rem; border: none; cursor: pointer; transition: all 0.2s; display: inline-block; }
-        .btn-primary:hover { background: #1d4ed8; transform: translateY(-1px); }
-        .btn-secondary { background: #fff; color: var(--text); padding: 0.7rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.875rem; border: 1.5px solid var(--border); cursor: pointer; transition: all 0.2s; display: inline-block; }
-        .btn-secondary:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-1px); }
- 
-        /* Profile Card */
-        .profile-card { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 2rem; text-align: center; box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
-        .profile-photo { width: 90px; height: 90px; border-radius: 50%; background: linear-gradient(135deg, #2563eb, #7c3aed); margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; font-size: 1.75rem; font-weight: 700; color: #fff; overflow: hidden; }
-        .profile-photo img { width:100%; height:100%; object-fit:cover; }
-        .profile-name { font-weight: 700; font-size: 1rem; margin-bottom: 0.2rem; }
-        .profile-role { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem; }
-        .profile-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: center; }
-        .tag { background: var(--primary-light); color: var(--primary); font-size: 0.68rem; font-weight: 600; padding: 0.22rem 0.6rem; border-radius: 100px; }
-        .tag.green { background: #f0fdf4; color: #166534; }
-        .tag.purple { background: #f5f3ff; color: #6d28d9; }
- 
-        /* Experience */
-        #experience { background: var(--bg-light); }
-        .timeline { display: flex; flex-direction: column; gap: 1.25rem; }
-        .timeline-item { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 1.75rem; transition: box-shadow 0.2s; }
-        .timeline-item:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
-        .tl-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 0.4rem; }
-        .tl-company { font-size: 0.8rem; font-weight: 600; color: var(--primary); margin-bottom: 0.2rem; }
-        .tl-title { font-weight: 700; font-size: 1rem; color: var(--text); }
-        .tl-meta { font-size: 0.78rem; color: var(--text-muted); white-space: nowrap; }
-        .badge { display: inline-block; font-size: 0.68rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 4px; margin: 0.75rem 0; }
-        .badge.current { background: #dcfce7; color: #166534; }
-        .badge.past { background: #f1f5f9; color: #64748b; }
-        .tl-points { list-style: none; display: flex; flex-direction: column; gap: 0.45rem; }
-        .tl-points li { font-size: 0.875rem; color: var(--text-muted); padding-left: 1.25rem; position: relative; line-height: 1.65; }
-        .tl-points li::before { content:'→'; position:absolute; left:0; color:var(--primary); font-size:0.8rem; }
-        .tl-points strong { color: var(--text); }
- 
-        /* Skills */
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1.25rem; }
-        .skill-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 1.4rem; transition: box-shadow 0.2s; }
-        .skill-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.07); }
-        .skill-icon { font-size: 1.4rem; margin-bottom: 0.6rem; }
-        .skill-name { font-weight: 600; font-size: 0.9rem; margin-bottom: 0.6rem; color: var(--text); }
-        .skill-tools { display: flex; flex-wrap: wrap; gap: 0.35rem; }
-        .skill-tool { background: var(--bg-light); color: var(--text-muted); font-size: 0.68rem; padding: 0.2rem 0.5rem; border-radius: 4px; border: 1px solid var(--border); }
- 
-        /* Projects */
-        #projects { background: var(--bg-light); }
-        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.5rem; }
-        .project-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 1.75rem; transition: box-shadow 0.2s, transform 0.2s; }
-        .project-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.09); transform: translateY(-2px); }
-        .project-type { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--primary); margin-bottom: 0.6rem; }
-        .project-title { font-weight: 700; font-size: 1.05rem; margin-bottom: 0.5rem; }
-        .project-desc { font-size: 0.875rem; color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.75; }
-        .tech-row { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-        .tech-tag { background: var(--primary-light); color: var(--primary); font-size: 0.68rem; font-weight: 600; padding: 0.22rem 0.6rem; border-radius: 4px; }
- 
-        /* Education */
-        .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1.25rem; }
-        .edu-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 1.75rem; }
-        .edu-degree { font-weight: 700; font-size: 1rem; margin-bottom: 0.25rem; }
-        .edu-uni { color: var(--primary); font-size: 0.875rem; font-weight: 500; margin-bottom: 0.2rem; }
-        .edu-period { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.75rem; }
-        .edu-note { font-size: 0.82rem; color: var(--text-muted); line-height: 1.65; }
- 
-        /* Certifications */
-        #certifications { background: var(--bg-light); }
-        .certs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1rem; }
-        .cert-card { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; text-align: center; transition: box-shadow 0.2s; }
-        .cert-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.07); }
-        .cert-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
-        .cert-name { font-weight: 600; font-size: 0.875rem; margin-bottom: 0.25rem; color: var(--text); }
-        .cert-issuer { font-size: 0.75rem; color: var(--text-muted); }
- 
-        /* Virtual Twin */
-        #twin { background: #fff; }
-        .twin-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-        .twin-info h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.875rem; }
-        .twin-info p { font-size: 0.875rem; color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.8; }
-        .topic-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-        .topic-chip { background: var(--bg-light); border: 1px solid var(--border); color: var(--text-muted); font-size: 0.78rem; padding: 0.4rem 0.875rem; border-radius: 100px; cursor: pointer; transition: all 0.2s; font-family: inherit; }
-        .topic-chip:hover { background: var(--primary-light); border-color: var(--primary); color: var(--primary); }
- 
-        /* Chat */
-        .chat-widget { background: #fff; border: 1.5px solid var(--border); border-radius: 16px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.07); }
-        .chat-header { background: var(--primary); padding: 1rem 1.25rem; display: flex; align-items: center; gap: 0.75rem; }
-        .chat-av { width: 36px; height: 36px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #fff; font-size: 0.8rem; }
-        .chat-hname { font-weight: 600; color: #fff; font-size: 0.875rem; }
-        .chat-hstatus { font-size: 0.72rem; color: rgba(255,255,255,0.75); display: flex; align-items: center; gap: 0.35rem; }
-        .chat-hstatus::before { content:''; width:7px; height:7px; background:#86efac; border-radius:50%; display:inline-block; }
-        .chat-msgs { height: 300px; overflow-y: auto; padding: 1.25rem; display: flex; flex-direction: column; gap: 1rem; background: #f8fafc; }
-        .chat-msgs::-webkit-scrollbar { width: 3px; }
-        .chat-msgs::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
-        .msg { display: flex; gap: 0.5rem; max-width: 88%; }
-        .msg.user { align-self: flex-end; flex-direction: row-reverse; }
-        .msg-av { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 700; flex-shrink: 0; }
-        .msg.bot .msg-av { background: var(--primary); color: #fff; }
-        .msg.user .msg-av { background: #e2e8f0; color: var(--text); }
-        .msg-bubble { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 0.7rem 0.95rem; font-size: 0.83rem; line-height: 1.65; color: var(--text); }
-        .msg.user .msg-bubble { background: var(--primary); color: #fff; border-color: var(--primary); }
-        .chat-foot { padding: 0.875rem; border-top: 1px solid var(--border); display: flex; gap: 0.5rem; background: #fff; }
-        .chat-input { flex: 1; border: 1.5px solid var(--border); border-radius: 8px; padding: 0.6rem 0.875rem; font-size: 0.83rem; font-family: inherit; outline: none; transition: border-color 0.2s; }
-        .chat-input:focus { border-color: var(--primary); }
-        .chat-send { background: var(--primary); color: #fff; border: none; border-radius: 8px; width: 38px; height: 38px; cursor: pointer; font-size: 1rem; transition: background 0.2s; display: flex; align-items: center; justify-content: center; }
-        .chat-send:hover { background: #1d4ed8; }
-        .typing-dots { display: flex; gap: 4px; align-items: center; padding: 4px 0; }
-        .typing-dot { width: 6px; height: 6px; background: var(--text-muted); border-radius: 50%; animation: bounce 1.2s ease infinite; }
-        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
-        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
-        @keyframes bounce { 0%,60%,100%{transform:translateY(0)} 30%{transform:translateY(-6px)} }
- 
-        /* Contact */
-        #contact { background: var(--bg-light); }
-        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
-        .contact-links { display: flex; flex-direction: column; gap: 1rem; }
-        .contact-link { display: flex; align-items: center; gap: 1rem; padding: 1rem 1.25rem; background: #fff; border: 1px solid var(--border); border-radius: 10px; text-decoration: none; transition: all 0.2s; }
-        .contact-link:hover { border-color: var(--primary); box-shadow: 0 2px 12px rgba(37,99,235,0.1); }
-        .contact-icon { width: 40px; height: 40px; background: var(--primary-light); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
-        .contact-label { font-size: 0.72rem; color: var(--text-muted); }
-        .contact-value { font-weight: 600; font-size: 0.875rem; color: var(--text); }
-        .contact-form { display: flex; flex-direction: column; gap: 1rem; }
-        .form-group { display: flex; flex-direction: column; gap: 0.35rem; }
-        .form-label { font-size: 0.78rem; font-weight: 600; color: var(--text); }
-        .form-input, .form-textarea { border: 1.5px solid var(--border); border-radius: 8px; padding: 0.7rem 0.875rem; font-family: inherit; font-size: 0.875rem; color: var(--text); outline: none; transition: border-color 0.2s; background: #fff; }
-        .form-input:focus, .form-textarea:focus { border-color: var(--primary); }
-        .form-textarea { height: 110px; resize: vertical; }
-        .form-success { display: none; background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534; padding: 1rem; border-radius: 8px; font-size: 0.875rem; font-weight: 500; text-align: center; }
- 
-        /* Footer */
-        footer { background: var(--text); color: rgba(255,255,255,0.55); text-align: center; padding: 2rem; font-size: 0.78rem; }
-        footer a { color: rgba(255,255,255,0.8); text-decoration: none; }
-        footer a:hover { color: #fff; }
- 
-        /* Mobile */
-        @media (max-width: 768px) {
-            .hero-content { grid-template-columns: 1fr; }
-            .profile-card { display: none; }
-            h1.hero-name { font-size: 2.25rem; }
-            .twin-layout { grid-template-columns: 1fr; }
-            .contact-grid { grid-template-columns: 1fr; }
-            .nav-links { display: none; }
-            .hero-stats { gap: 1.5rem; }
-        }
-        @media (max-width: 480px) {
-            section { padding: 3.5rem 1.25rem; }
-            h1.hero-name { font-size: 1.875rem; }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saikrishna Jella — Business Analyst</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 </head>
 <body>
- 
-<!-- Nav -->
-<nav>
-    <a href="#hero" class="nav-logo">Saikrishna <span>Jella</span></a>
-    <ul class="nav-links">
-        <li><a href="#experience">Experience</a></li>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">SJ<span class="nav-dot">.</span></a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Work</a></li>
         <li><a href="#projects">Projects</a></li>
-        <li><a href="#twin">Virtual Twin</a></li>
-        <li><a href="#contact" class="nav-cta">Contact</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact" class="nav-cta">Let's Talk</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#about" class="ml">About</a></li>
+      <li><a href="#skills" class="ml">Skills</a></li>
+      <li><a href="#experience" class="ml">Work</a></li>
+      <li><a href="#projects" class="ml">Projects</a></li>
+      <li><a href="#education" class="ml">Education</a></li>
+      <li><a href="#contact" class="ml">Contact</a></li>
     </ul>
-</nav>
- 
-<!-- Hero -->
-<section id="hero">
-    <div class="container hero-content">
+  </div>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg-text" aria-hidden="true">BA</div>
+    <div class="hero-inner">
+      <div class="hero-label reveal-up">
+        <span class="dot-pulse"></span>
+        Open to Opportunities · London, UK
+      </div>
+      <h1 class="hero-name reveal-up delay-1">
+        Saikrishna<br /><span class="gradient-text">Jella.</span>
+      </h1>
+      <p class="hero-role reveal-up delay-2">Business Analyst &amp; MSc International Business Management</p>
+      <p class="hero-bio reveal-up delay-3">
+        I turn messy data into clear decisions — using Excel, SQL, PowerBI, and GenAI to help businesses grow smarter.
+      </p>
+      <div class="hero-actions reveal-up delay-4">
+        <a href="#contact" class="btn-main">Get In Touch <span class="arr">→</span></a>
+        <a href="#projects" class="btn-ghost">See My Work</a>
+      </div>
+    </div>
+
+    <!-- Floating chips -->
+    <div class="hero-chip chip-1 reveal-float">📊 Excel &amp; Power BI</div>
+    <div class="hero-chip chip-2 reveal-float">🔍 Market Research</div>
+    <div class="hero-chip chip-3 reveal-float">🤖 GenAI Tools</div>
+    <div class="hero-chip chip-4 reveal-float">🗄️ SQL</div>
+
+    <div class="scroll-cue">
+      <div class="scroll-line"></div>
+      <span>scroll</span>
+    </div>
+  </section>
+
+  <!-- MARQUEE STRIP -->
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <span>Business Analysis</span><span class="sep">✦</span>
+      <span>Data Analytics</span><span class="sep">✦</span>
+      <span>Market Research</span><span class="sep">✦</span>
+      <span>SQL Querying</span><span class="sep">✦</span>
+      <span>Excel Modelling</span><span class="sep">✦</span>
+      <span>Power BI</span><span class="sep">✦</span>
+      <span>GenAI Automation</span><span class="sep">✦</span>
+      <span>Stakeholder Reporting</span><span class="sep">✦</span>
+      <span>Competitor Benchmarking</span><span class="sep">✦</span>
+      <span>Business Analysis</span><span class="sep">✦</span>
+      <span>Data Analytics</span><span class="sep">✦</span>
+      <span>Market Research</span><span class="sep">✦</span>
+      <span>SQL Querying</span><span class="sep">✦</span>
+      <span>Excel Modelling</span><span class="sep">✦</span>
+      <span>Power BI</span><span class="sep">✦</span>
+      <span>GenAI Automation</span><span class="sep">✦</span>
+      <span>Stakeholder Reporting</span><span class="sep">✦</span>
+      <span>Competitor Benchmarking</span><span class="sep">✦</span>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="container split-layout">
+      <div class="split-label">
+        <span class="section-num">01</span>
+        <h2 class="section-heading reveal-up">About<br />Me.</h2>
+      </div>
+      <div class="split-body reveal-up delay-1">
+        <p class="about-text">
+          I'm an analytical <strong>Business Analyst</strong> currently pursuing my MSc in International Business Management at the University of East London. With a background in Engineering and real-world experience in business development, I bridge the gap between raw data and strategic decisions.
+        </p>
+        <p class="about-text">
+          I've worked across 10+ client accounts, led market research initiatives, and built reporting frameworks that drive measurable commercial outcomes — including a <strong>15% uplift</strong> in qualified prospects at Intellogi Technologies.
+        </p>
+        <div class="about-stats">
+          <div class="stat reveal-up delay-2">
+            <span class="stat-num">10<span class="stat-plus">+</span></span>
+            <span class="stat-label">Accounts Managed</span>
+          </div>
+          <div class="stat reveal-up delay-3">
+            <span class="stat-num">15<span class="stat-plus">%</span></span>
+            <span class="stat-label">Uplift in Prospects</span>
+          </div>
+          <div class="stat reveal-up delay-4">
+            <span class="stat-num">4<span class="stat-plus">+</span></span>
+            <span class="stat-label">Certifications</span>
+          </div>
+        </div>
+        <div class="about-langs">
+          <span class="lang-pill">🇬🇧 English (Fluent)</span>
+          <span class="lang-pill">🇮🇳 Telugu (Native)</span>
+          <span class="lang-pill">🇮🇳 Hindi (Fluent)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="section dark-section">
+    <div class="container">
+      <div class="section-header-centered">
+        <span class="section-num light">02</span>
+        <h2 class="section-heading light reveal-up">My Toolkit.</h2>
+        <p class="section-sub light reveal-up delay-1">Everything I use to deliver results</p>
+      </div>
+
+      <div class="skills-bento reveal-up delay-2">
+
+        <div class="bento-card bento-wide accent-card">
+          <div class="bento-icon">📊</div>
+          <h3>Business Analysis</h3>
+          <p>Requirements gathering, process documentation, stakeholder engagement, business case support, user journey mapping.</p>
+        </div>
+
+        <div class="bento-card">
+          <div class="bento-icon">📈</div>
+          <h3>Data & Reporting</h3>
+          <div class="pill-group">
+            <span class="pill">Pivot Tables</span>
+            <span class="pill">VLOOKUP / XLOOKUP</span>
+            <span class="pill">KPI Tracking</span>
+            <span class="pill">Data Cleaning</span>
+          </div>
+        </div>
+
+        <div class="bento-card">
+          <div class="bento-icon">🗄️</div>
+          <h3>Querying</h3>
+          <div class="pill-group">
+            <span class="pill">SQL</span>
+            <span class="pill">Filtering</span>
+            <span class="pill">Table Joins</span>
+            <span class="pill">Data Extraction</span>
+          </div>
+        </div>
+
+        <div class="bento-card">
+          <div class="bento-icon">🔍</div>
+          <h3>Research</h3>
+          <div class="pill-group">
+            <span class="pill">Market Research</span>
+            <span class="pill">Benchmarking</span>
+            <span class="pill">Due Diligence</span>
+            <span class="pill">Trend Analysis</span>
+          </div>
+        </div>
+
+        <div class="bento-card bento-wide">
+          <div class="bento-icon">🛠️</div>
+          <h3>Tools</h3>
+          <div class="tools-grid">
+            <div class="tool-item"><span class="tool-emoji">📗</span> Microsoft Excel</div>
+            <div class="tool-item"><span class="tool-emoji">📊</span> Power BI</div>
+            <div class="tool-item"><span class="tool-emoji">🗄️</span> SQL</div>
+            <div class="tool-item"><span class="tool-emoji">📽️</span> PowerPoint</div>
+            <div class="tool-item"><span class="tool-emoji">🤖</span> ChatGPT / GenAI</div>
+            <div class="tool-item"><span class="tool-emoji">🔵</span> Google Workspace</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="section">
+    <div class="container">
+      <div class="split-label">
+        <span class="section-num">03</span>
+        <h2 class="section-heading reveal-up">Work<br />Experience.</h2>
+      </div>
+
+      <div class="exp-list">
+
+        <div class="exp-item reveal-up delay-1">
+          <div class="exp-num">01</div>
+          <div class="exp-body">
+            <div class="exp-top">
+              <div>
+                <h3 class="exp-title">Business Development Associate</h3>
+                <p class="exp-company">Intellogi Technologies Pvt Ltd · India</p>
+              </div>
+              <span class="exp-date">Jan 2024 – Jul 2025</span>
+            </div>
+            <ul class="exp-bullets">
+              <li>Gathered requirements and analysed client &amp; market data across <strong>10+ accounts</strong> to support strategic decisions.</li>
+              <li>Produced structured reports and presentations for internal teams and external clients.</li>
+              <li>Led competitor benchmarking and due diligence, synthesising findings into actionable intelligence.</li>
+              <li>Built lead generation trackers contributing to a <strong>15% uplift</strong> in qualified prospects.</li>
+              <li>Translated complex datasets into clear outputs for senior stakeholders.</li>
+              <li>Documented workflows and reporting processes, improving operational consistency.</li>
+            </ul>
+            <div class="exp-tags">
+              <span>Requirements Gathering</span><span>Market Research</span><span>Excel</span><span>Stakeholder Reporting</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-item reveal-up delay-2">
+          <div class="exp-num">02</div>
+          <div class="exp-body">
+            <div class="exp-top">
+              <div>
+                <h3 class="exp-title">Crew Member — Operational Support</h3>
+                <p class="exp-company">McDonald's · Enfield, UK</p>
+              </div>
+              <span class="exp-date">Oct 2025 – Present</span>
+            </div>
+            <ul class="exp-bullets">
+              <li>High-volume environment serving <strong>200+ customers daily</strong> with strict SOP adherence.</li>
+              <li>Collaborating within a team of <strong>15+</strong> to maintain workflow consistency and compliance.</li>
+            </ul>
+            <div class="exp-tags">
+              <span>Operations</span><span>Compliance</span><span>Teamwork</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section dark-section">
+    <div class="container">
+      <div class="section-header-centered">
+        <span class="section-num light">04</span>
+        <h2 class="section-heading light reveal-up">Projects.</h2>
+        <p class="section-sub light reveal-up delay-1">Real work, real outcomes</p>
+      </div>
+
+      <div class="proj-grid">
+
+        <div class="proj-card reveal-up delay-2">
+          <div class="proj-number">01</div>
+          <div class="proj-type">MSc Coursework</div>
+          <h3 class="proj-title">Alpha District</h3>
+          <p class="proj-tagline">Gen Z Gymwear Startup · Business Plan &amp; Market Analysis</p>
+          <p class="proj-desc">
+            Full business plan and pitch deck including market analysis, competitor audit, financial modelling, and digital marketing strategy. Applied AI and prompt engineering to automate research workflows.
+          </p>
+          <div class="proj-chips">
+            <span>Business Plan</span><span>Market Analysis</span><span>Financial Modelling</span><span>GenAI</span><span>Pitch Deck</span>
+          </div>
+        </div>
+
+        <div class="proj-card reveal-up delay-3">
+          <div class="proj-number">02</div>
+          <div class="proj-type">Personal Project</div>
+          <h3 class="proj-title">Fin-Copilot</h3>
+          <p class="proj-tagline">Financial Data Analysis Concept Tool</p>
+          <p class="proj-desc">
+            Designed a concept tool to generate insights from financial spreadsheets using Excel and AI, focused on visualisation and decision support. Simplified complex datasets into clear, actionable insights.
+          </p>
+          <div class="proj-chips">
+            <span>Excel</span><span>AI Integration</span><span>Data Viz</span><span>Financial Analysis</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" class="section">
+    <div class="container">
+      <div class="split-label">
+        <span class="section-num">05</span>
+        <h2 class="section-heading reveal-up">Education &amp;<br />Certs.</h2>
+      </div>
+
+      <div class="edu-list reveal-up delay-1">
+
+        <div class="edu-row">
+          <div class="edu-year">2025–Now</div>
+          <div class="edu-info">
+            <h3>MSc International Business Management</h3>
+            <p class="edu-inst">University of East London, UK</p>
+            <p class="edu-detail">Global Marketing · AI &amp; Digital Networks · Entrepreneurship · Organisational Behaviour</p>
+          </div>
+          <div class="edu-badge">MSc</div>
+        </div>
+
+        <div class="edu-divider"></div>
+
+        <div class="edu-row">
+          <div class="edu-year">2020–2023</div>
+          <div class="edu-info">
+            <h3>B.Tech — Electronics &amp; Communication Engineering</h3>
+            <p class="edu-inst">India</p>
+            <p class="edu-detail">Analytical and technical foundations through data-driven problem solving and engineering design.</p>
+          </div>
+          <div class="edu-badge">B.Tech</div>
+        </div>
+
+      </div>
+
+      <div class="cert-block reveal-up delay-2">
+        <h3 class="cert-heading">Certifications</h3>
+        <div class="cert-list">
+          <div class="cert-row"><span class="cert-icon">✦</span><span>Excel Data Analysis (Pivot Tables, VLOOKUP, XLOOKUP)</span><em>LinkedIn Learning</em></div>
+          <div class="cert-row"><span class="cert-icon">✦</span><span>Data-Driven Decision Making for Business Strategy</span><em>LinkedIn Learning</em></div>
+          <div class="cert-row"><span class="cert-icon">✦</span><span>Strategy Consulting Job Simulation</span><em>Forage</em></div>
+          <div class="cert-row"><span class="cert-icon">✦</span><span>GenAI Portfolio &amp; Skill Certification</span><em>GrowthSchool</em></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section contact-section">
+    <div class="container contact-inner">
+      <span class="section-num light">06</span>
+      <h2 class="contact-heading reveal-up">Let's<br /><span class="gradient-text">Work Together.</span></h2>
+      <p class="contact-sub reveal-up delay-1">Open to business analyst roles, internships, and collaborations in London.</p>
+
+      <div class="contact-links reveal-up delay-2">
+        <a href="mailto:saikrishnajella09@gmail.com" class="contact-link-card">
+          <span class="cl-icon">✉</span>
+          <div>
+            <span class="cl-label">Email</span>
+            <span class="cl-val">saikrishnajella09@gmail.com</span>
+          </div>
+          <span class="cl-arr">→</span>
+        </a>
+        <a href="https://linkedin.com/in/saikrishnajella09" target="_blank" rel="noopener" class="contact-link-card">
+          <span class="cl-icon">💼</span>
+          <div>
+            <span class="cl-label">LinkedIn</span>
+            <span class="cl-val">saikrishnajella09</span>
+          </div>
+          <span class="cl-arr">→</span>
+        </a>
+        <a href="tel:07823694370" class="contact-link-card">
+          <span class="cl-icon">📞</span>
+          <div>
+            <span class="cl-label">Phone</span>
+            <span class="cl-val">07823 694370</span>
+          </div>
+          <span class="cl-arr">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span>© 2026 Saikrishna Jella</span>
+    <span class="footer-sep">·</span>
+    <span>London, UK</span>
+    <span class="footer-sep">·</span>
+    <span>Crafted with HTML, CSS &amp; JS</span>
+  </footer>
+
+  <!-- VIRTUALKRISHNA CHAT WIDGET -->
+  <button id="vkLauncher" class="vk-launcher" aria-label="Chat with VirtualKrishna">
+    <span class="vk-launcher-icon">💬</span>
+    <span class="vk-launcher-text">Chat with VirtualKrishna</span>
+  </button>
+
+  <div id="vkPanel" class="vk-panel">
+    <div class="vk-header">
+      <div class="vk-header-info">
+        <span class="vk-avatar">SJ</span>
         <div>
-            <div class="hero-badge">Open to Opportunities · London, UK</div>
-            <h1 class="hero-name">Saikrishna<br><span>Jella</span></h1>
-            <p class="hero-tagline">Business Analyst & Strategy professional bridging an engineering foundation with data-driven decision-making. Currently completing an MSc in International Business Management at the University of East London.</p>
-            <div class="hero-stats">
-                <div class="hero-stat">
-                    <div class="hero-stat-num">10+</div>
-                    <div class="hero-stat-label">Corporate Accounts</div>
-                </div>
-                <div class="hero-stat">
-                    <div class="hero-stat-num">15%</div>
-                    <div class="hero-stat-label">Pipeline Growth</div>
-                </div>
-                <div class="hero-stat">
-                    <div class="hero-stat-num">4</div>
-                    <div class="hero-stat-label">Certifications</div>
-                </div>
-            </div>
-            <div class="hero-btns">
-                <a href="#twin" class="btn-primary">Talk to Virtual Sai</a>
-                <a href="assets/cv.pdf" class="btn-secondary" target="_blank">Download CV</a>
-                <a href="#contact" class="btn-secondary">Contact Me</a>
-            </div>
+          <span class="vk-name">VirtualKrishna</span>
+          <span class="vk-status"><span class="vk-dot"></span> AI version of Saikrishna</span>
         </div>
-        <div class="profile-card">
-            <div class="profile-photo">SJ</div>
-            <div class="profile-name">Saikrishna Jella</div>
-            <div class="profile-role">Business Analyst · London, UK</div>
-            <div class="profile-tags">
-                <span class="tag">SQL</span>
-                <span class="tag">Excel</span>
-                <span class="tag">GenAI</span>
-                <span class="tag green">Open to Work</span>
-                <span class="tag purple">MSc Student</span>
-            </div>
-        </div>
+      </div>
+      <button id="vkClose" class="vk-close" aria-label="Close chat">✕</button>
     </div>
-</section>
- 
-<!-- Experience -->
-<section id="experience">
-    <div class="container">
-        <div class="section-label">Professional History</div>
-        <h2 class="section-title">Experience</h2>
-        <p class="section-desc">From commercial strategy roles in India to adapting and growing in the UK market while completing postgraduate education.</p>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="tl-top">
-                    <div>
-                        <div class="tl-company">McDonald's · Enfield, UK</div>
-                        <div class="tl-title">Crew Member — Operational Support</div>
-                    </div>
-                    <div class="tl-meta">Oct 2025 – Present</div>
-                </div>
-                <span class="badge current">Current · Part-time alongside MSc</span>
-                <ul class="tl-points">
-                    <li>Operate in a high-volume, compliance-driven environment serving <strong>200+ customers daily</strong> under strict SOP, health & safety, and inventory standards.</li>
-                    <li>Collaborate within a cross-functional team of 15+, sharpening real-time task prioritisation, conflict resolution, and workflow adaptability in a fast-paced UK workplace.</li>
-                    <li>Developing professional resilience and UK work culture adaptability in parallel with full-time academic study.</li>
-                </ul>
-            </div>
-            <div class="timeline-item">
-                <div class="tl-top">
-                    <div>
-                        <div class="tl-company">Intellogi Technologies Pvt Ltd · India</div>
-                        <div class="tl-title">Business Development Associate — Analytical Strategy</div>
-                    </div>
-                    <div class="tl-meta">Jan 2024 – Jul 2025</div>
-                </div>
-                <span class="badge past">Full-time · 1.5 Years</span>
-                <ul class="tl-points">
-                    <li>Analysed market structures and consumer intelligence data across <strong>10+ corporate accounts</strong>, generating data-centric recommendations directly presented to company directors.</li>
-                    <li>Built and maintained prospect tracking databases that achieved a <strong>15% increase</strong> in qualified lead engagement through structured pipeline management and data hygiene improvements.</li>
-                    <li>Designed competitor benchmarking audits and codified internal SOPs to streamline team information flow and ensure high data quality across departments.</li>
-                </ul>
-            </div>
-        </div>
+    <div id="vkMessages" class="vk-messages">
+      <div class="vk-msg vk-msg-bot">
+        Hey, I'm VirtualKrishna 👋 Ask me anything about Saikrishna's experience, skills, or projects.
+      </div>
     </div>
-</section>
- 
-<!-- Skills -->
-<section id="skills">
-    <div class="container">
-        <div class="section-label">Capabilities</div>
-        <h2 class="section-title">Skills & Tools</h2>
-        <p class="section-desc">A practical toolkit built across engineering education, commercial strategy work, and postgraduate business study.</p>
-        <div class="skills-grid">
-            <div class="skill-card">
-                <div class="skill-icon">📊</div>
-                <div class="skill-name">Data Analytics & Excel</div>
-                <div class="skill-tools">
-                    <span class="skill-tool">Pivot Tables</span>
-                    <span class="skill-tool">VLOOKUP / XLOOKUP</span>
-                    <span class="skill-tool">Forecasting</span>
-                    <span class="skill-tool">Financial Modelling</span>
-                </div>
-            </div>
-            <div class="skill-card">
-                <div class="skill-icon">🗄️</div>
-                <div class="skill-name">SQL & Databases</div>
-                <div class="skill-tools">
-                    <span class="skill-tool">SELECT / JOIN</span>
-                    <span class="skill-tool">Aggregation</span>
-                    <span class="skill-tool">Data Cleaning</span>
-                    <span class="skill-tool">Pipeline Queries</span>
-                </div>
-            </div>
-            <div class="skill-card">
-                <div class="skill-icon">🔍</div>
-                <div class="skill-name">Business Analysis</div>
-                <div class="skill-tools">
-                    <span class="skill-tool">SWOT / PESTLE</span>
-                    <span class="skill-tool">Gap Analysis</span>
-                    <span class="skill-tool">Process Mapping</span>
-                    <span class="skill-tool">Requirements Docs</span>
-                </div>
-            </div>
-            <div class="skill-card">
-                <div class="skill-icon">🤖</div>
-                <div class="skill-name">GenAI & Automation</div>
-                <div class="skill-tools">
-                    <span class="skill-tool">Prompt Engineering</span>
-                    <span class="skill-tool">ChatGPT / Claude</span>
-                    <span class="skill-tool">Workflow Design</span>
-                    <span class="skill-tool">AI Research</span>
-                </div>
-            </div>
-            <div class="skill-card">
-                <div class="skill-icon">📈</div>
-                <div class="skill-name">Strategy & Market Intel</div>
-                <div class="skill-tools">
-                    <span class="skill-tool">Competitor Benchmarking</span>
-                    <span class="skill-tool">Unit Economics</span>
-                    <span class="skill-tool">Market Sizing</span>
-                    <span class="skill-tool">Stakeholder Reporting</span>
-                </div>
-            </div>
-            <div class="skill-card">
-                <div class="skill-icon">🔧</div>
-                <div class="skill-name">Technical Foundation</div>
-                <div class="skill-tools">
-                    <span class="skill-tool">B.Tech ECE</span>
-                    <span class="skill-tool">Quantitative Methods</span>
-                    <span class="skill-tool">Structured Thinking</span>
-                    <span class="skill-tool">Documentation</span>
-                </div>
-            </div>
-        </div>
+    <div class="vk-input-row">
+      <input id="vkInput" class="vk-input" type="text" placeholder="Ask about my experience…" maxlength="500" autocomplete="off" />
+      <button id="vkSend" class="vk-send" aria-label="Send">→</button>
     </div>
-</section>
- 
-<!-- Projects -->
-<section id="projects">
-    <div class="container">
-        <div class="section-label">Work Samples</div>
-        <h2 class="section-title">Projects</h2>
-        <p class="section-desc">Practical applications of analytical and strategic frameworks, spanning personal concepts and academic deliverables.</p>
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-type">Personal Concept</div>
-                <div class="project-title">Fin-Copilot — AI Finance Assistant</div>
-                <p class="project-desc">A conceptual dashboard that translates complex Excel finance datasets into AI-generated plain-language summaries for non-technical stakeholders. Designed to eliminate the bottleneck where cross-functional teams struggle to interpret raw financial models.</p>
-                <div class="tech-row">
-                    <span class="tech-tag">Advanced Excel</span>
-                    <span class="tech-tag">GenAI Modelling</span>
-                    <span class="tech-tag">UX Architecture</span>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-type">MSc Coursework · University of East London</div>
-                <div class="project-title">Alpha District — Gen-Z Athleisure Launch</div>
-                <p class="project-desc">Full commercial launch plan for an activewear startup targeting Gen-Z consumers. Included competitor benchmarking, unit economics modelling, digital funnel architecture, and a detailed budget runway analysis in Excel — informed by AI-assisted market research workflows.</p>
-                <div class="tech-row">
-                    <span class="tech-tag">Market Benchmarking</span>
-                    <span class="tech-tag">Unit Economics</span>
-                    <span class="tech-tag">Excel Modelling</span>
-                    <span class="tech-tag">AI Research Workflows</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
- 
-<!-- Education -->
-<section id="education">
-    <div class="container">
-        <div class="section-label">Academic Background</div>
-        <h2 class="section-title">Education</h2>
-        <div class="edu-grid">
-            <div class="edu-card">
-                <span class="badge current">Active</span>
-                <div class="edu-degree">MSc International Business Management</div>
-                <div class="edu-uni">University of East London, UK</div>
-                <div class="edu-period">Sep 2025 – Present · Expected 2026</div>
-                <div class="edu-note">Key modules: Global Strategy, AI & Digital Networks, Organisational Management, Tech-driven Startups.</div>
-            </div>
-            <div class="edu-card">
-                <span class="badge past">Graduate</span>
-                <div class="edu-degree">B.Tech — Electronics & Communication Engineering</div>
-                <div class="edu-uni">India</div>
-                <div class="edu-period">Oct 2020 – Aug 2023</div>
-                <div class="edu-note">Built foundations in mathematics, quantitative diagnostics, data formatting, and structured analytical documentation.</div>
-            </div>
-        </div>
-    </div>
-</section>
- 
-<!-- Certifications -->
-<section id="certifications">
-    <div class="container">
-        <div class="section-label">Credentials</div>
-        <h2 class="section-title">Certifications</h2>
-        <div class="certs-grid">
-            <div class="cert-card">
-                <div class="cert-icon">📊</div>
-                <div class="cert-name">Excel Data Analysis</div>
-                <div class="cert-issuer">LinkedIn Learning</div>
-            </div>
-            <div class="cert-card">
-                <div class="cert-icon">📈</div>
-                <div class="cert-name">Data-Driven Strategy</div>
-                <div class="cert-issuer">LinkedIn Learning</div>
-            </div>
-            <div class="cert-card">
-                <div class="cert-icon">🏢</div>
-                <div class="cert-name">Strategy Consulting</div>
-                <div class="cert-issuer">Forage Simulation</div>
-            </div>
-            <div class="cert-card">
-                <div class="cert-icon">🤖</div>
-                <div class="cert-name">GenAI Portfolio</div>
-                <div class="cert-issuer">GrowthSchool</div>
-            </div>
-        </div>
-    </div>
-</section>
- 
-<!-- Virtual Twin -->
-<section id="twin">
-    <div class="container">
-        <div class="section-label">AI Interactive Feature</div>
-        <h2 class="section-title">Virtual Twin</h2>
-        <p class="section-desc">Ask Saikrishna anything — this AI model is built on his professional history, academic background, and methodology.</p>
-        <div class="twin-layout">
-            <div class="twin-info">
-                <h3>What can you ask?</h3>
-                <p>The Virtual Twin is preloaded with Saikrishna's full professional profile: work history, academic modules, project outcomes, and career goals. It gives grounded, honest answers based on his actual experience.</p>
-                <div class="topic-chips">
-                    <button class="topic-chip" onclick="sendQuick(this)">Tell me about Intellogi</button>
-                    <button class="topic-chip" onclick="sendQuick(this)">What roles are you targeting?</button>
-                    <button class="topic-chip" onclick="sendQuick(this)">How do you use SQL?</button>
-                    <button class="topic-chip" onclick="sendQuick(this)">Explain Alpha District</button>
-                    <button class="topic-chip" onclick="sendQuick(this)">Why business analytics?</button>
-                    <button class="topic-chip" onclick="sendQuick(this)">What's your GenAI experience?</button>
-                    <button class="topic-chip" onclick="sendQuick(this)">Are you available to start now?</button>
-                    <button class="topic-chip" onclick="sendQuick(this)">What makes you stand out?</button>
-                </div>
-            </div>
-            <div class="chat-widget">
-                <div class="chat-header">
-                    <div class="chat-av">SJ</div>
-                    <div>
-                        <div class="chat-hname">Virtual Saikrishna</div>
-                        <div class="chat-hstatus">Ready to answer your questions</div>
-                    </div>
-                </div>
-                <div class="chat-msgs" id="chatMsgs">
-                    <div class="msg bot">
-                        <div class="msg-av">SJ</div>
-                        <div class="msg-bubble">Hi! I'm Saikrishna's Virtual Twin. Ask me about my experience at Intellogi, my MSc at UEL, my analytical projects, or what I'm looking for in my next role.</div>
-                    </div>
-                </div>
-                <div class="chat-foot">
-                    <input type="text" class="chat-input" id="chatIn" placeholder="Ask about experience, skills, projects..." onkeydown="if(event.key==='Enter')sendMsg()">
-                    <button class="chat-send" onclick="sendMsg()">↑</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
- 
-<!-- Contact -->
-<section id="contact">
-    <div class="container">
-        <div class="section-label">Get in Touch</div>
-        <h2 class="section-title">Let's Connect</h2>
-        <p class="section-desc">Actively seeking Business Analyst, Strategy Analyst, and Junior Consultant roles in London and remotely. Open to internships and graduate positions.</p>
-        <div class="contact-grid">
-            <div class="contact-links">
-                <a href="mailto:saikrishnajella09@gmail.com" class="contact-link">
-                    <div class="contact-icon">✉️</div>
-                    <div>
-                        <div class="contact-label">Email</div>
-                        <div class="contact-value">saikrishnajella09@gmail.com</div>
-                    </div>
-                </a>
-                <a href="https://linkedin.com/in/saikrishnajella09" target="_blank" rel="noopener" class="contact-link">
-                    <div class="contact-icon">💼</div>
-                    <div>
-                        <div class="contact-label">LinkedIn</div>
-                        <div class="contact-value">linkedin.com/in/saikrishnajella09</div>
-                    </div>
-                </a>
-                <a href="assets/cv.pdf" target="_blank" class="contact-link">
-                    <div class="contact-icon">📄</div>
-                    <div>
-                        <div class="contact-label">CV / Resume</div>
-                        <div class="contact-value">Download PDF</div>
-                    </div>
-                </a>
-            </div>
-            <form class="contact-form" id="contactForm" action="https://formspree.io/f/xdavgzre" method="POST">
-                <div class="form-group">
-                    <label class="form-label">Your Name</label>
-                    <input type="text" name="name" class="form-input" placeholder="Jane Smith" required>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Your Email</label>
-                    <input type="email" name="email" class="form-input" placeholder="jane@company.com" required>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Message</label>
-                    <textarea name="message" class="form-textarea" placeholder="I'd like to discuss a Business Analyst opportunity..." required></textarea>
-                </div>
-                <button type="submit" class="btn-primary" id="submitBtn">Send Message</button>
-                <div class="form-success" id="formSuccess">✅ Message sent! Saikrishna will get back to you shortly.</div>
-            </form>
-        </div>
-    </div>
-</section>
- 
-<footer>
-    <p>© 2026 Saikrishna Jella &nbsp;·&nbsp; Business Analyst &nbsp;·&nbsp;
-        <a href="https://linkedin.com/in/saikrishnajella09" target="_blank">LinkedIn</a>
-        &nbsp;·&nbsp; London, UK
-    </p>
-</footer>
- 
-<script>
-// ── Expanded Knowledge Base ──
-const KB = [
-    // Greetings & casual openers
-    {
-        keys: ['hi','hello','hey','hiya','howdy','good morning','good afternoon','good evening','sup','what\'s up','whats up'],
-        r: "Hey! Great to meet you. I'm Saikrishna's Virtual Twin — ask me anything about his background, skills, or what he's looking for. You can try: 'Tell me about your experience', 'What roles are you targeting?', or 'What makes you stand out?'"
-    },
-    {
-        keys: ['how are you','how r u','how are u','you good','all good','doing well','how do you do'],
-        r: "Doing well, thanks for asking! Ready to tell you everything about Saikrishna's professional journey. What would you like to know — his experience, skills, projects, or availability?"
-    },
-    {
-        keys: ['who are you','what are you','tell me about yourself','introduce yourself','what is this','what can you do','help'],
-        r: "I'm the Virtual Twin of Saikrishna Jella — a Business Analyst & Strategy professional based in London. I'm preloaded with his full profile: work experience, MSc studies at UEL, analytical projects, skills, and career goals. Ask me anything a recruiter would ask — I'll give you honest, grounded answers."
-    },
-    {
-        keys: ['thanks','thank you','thank u','cheers','appreciated','great answer','helpful','nice'],
-        r: "Happy to help! Feel free to keep asking — I'm here to give you a real picture of who Saikrishna is and what he can bring to a role."
-    },
-    {
-        keys: ['bye','goodbye','see you','cya','later','that\'s all','done','exit'],
-        r: "Thanks for stopping by! If you'd like to connect with Saikrishna directly, reach him at saikrishnajella09@gmail.com or on LinkedIn at linkedin.com/in/saikrishnajella09. Have a great day!"
-    },
-    {
-        keys: ['ok','okay','got it','understood','i see','makes sense','cool','interesting','nice one'],
-        r: "Glad that's clear! Is there anything else you'd like to know about my experience, skills, or projects?"
-    },
-    // Experience
-    {
-        keys: ['intellogi','business development','india','associate','1.5 year','previous job','last job','old company'],
-        r: "At Intellogi Technologies (Jan 2024–Jul 2025), I worked as a Business Development Associate. My core work: analysing consumer intelligence data across 10+ corporate accounts, building competitor benchmarking audits, and managing prospect tracking databases. My biggest outcome was a 15% uplift in qualified lead engagement through structured pipeline management and better data hygiene."
-    },
-    {
-        keys: ['mcdonald','crew','enfield','part-time','current job','working now'],
-        r: "The McDonald's role is my current part-time position while completing my MSc. I took it deliberately to build UK work experience and financial independence. It has strengthened SOP discipline, speed under real pressure, and cross-functional teamwork in a UK environment — all transferable skills for a BA career."
-    },
-    // Education
-    {
-        keys: ['msc','university','uel','masters','university of east london','degree','postgrad','studying','course'],
-        r: "I'm completing an MSc in International Business Management at the University of East London (Sep 2025–expected 2026). Key modules: Global Strategy, AI & Digital Networks, Organisational Management, and Tech-driven Startups. My coursework project Alpha District let me apply unit economics, market benchmarking, and AI research workflows in a real startup simulation."
-    },
-    {
-        keys: ['btech','b.tech','engineering','ece','electronics','undergraduate','bachelor'],
-        r: "I completed a B.Tech in Electronics & Communication Engineering in India (Oct 2020–Aug 2023). It gave me a strong foundation in mathematics, quantitative diagnostics, structured problem-solving, and technical documentation — all of which I now apply directly to business analysis work."
-    },
-    {
-        keys: ['thesis','dissertation','final project','research project','msc project'],
-        r: "My MSc dissertation is ongoing and focused on strategy and data-driven business topics. The Alpha District project — a full commercial launch plan for a Gen-Z athleisure brand — is the most significant academic project I can share publicly. It covered unit economics, market research, competitor benchmarking, and AI-assisted analysis."
-    },
-    // Projects
-    {
-        keys: ['alpha district','athleisure','gen-z','startup','coursework','activewear','launch plan'],
-        r: "Alpha District was my MSc coursework project — a full commercial launch plan for a Gen-Z activewear brand. I built competitor benchmarks, designed a digital funnel strategy, modelled unit economics in Excel, and used AI prompt workflows to accelerate market research. It demonstrates analytical rigour combined with strategic creativity."
-    },
-    {
-        keys: ['fin-copilot','finance','dashboard','excel assistant','fincopilot','financial tool'],
-        r: "Fin-Copilot is a personal concept: an AI-powered dashboard that translates complex Excel finance data into plain-language summaries for non-technical stakeholders. The problem it solves — finance teams produce detailed models that decision-makers can't easily read — is real and common in organisations. I designed the UX architecture and AI integration logic as a working prototype."
-    },
-    {
-        keys: ['virtual twin','portfolio','this website','how built','who made','github pages'],
-        r: "This portfolio and the Virtual Twin were built by Saikrishna himself using vanilla HTML, CSS, and JavaScript — no frameworks, no dependencies. The Virtual Twin uses a domain-specific knowledge base I compiled from my own CV, projects, and experience. It's hosted on GitHub Pages and the full source is available at github.com/thevirtualkrishnaaa/virtualtwin."
-    },
-    // Skills
-    {
-        keys: ['sql','database','query','queries','data','join','select'],
-        r: "My SQL skills are foundational and practical. I use SELECT, JOIN, GROUP BY, HAVING, and aggregation functions to clean and analyse datasets — similar to the sales pipeline queries I built at Intellogi to surface high-value accounts. I'm actively expanding these skills through structured practice projects."
-    },
-    {
-        keys: ['excel','spreadsheet','pivot','vlookup','xlookup','forecast','modelling','financial model'],
-        r: "Excel is one of my strongest tools. I'm proficient in Pivot Tables, VLOOKUP/XLOOKUP, forecasting, and financial modelling — used practically at Intellogi and in the Alpha District project. I hold a LinkedIn Learning certification in Excel Data Analysis."
-    },
-    {
-        keys: ['genai','ai','chatgpt','claude','artificial intelligence','prompt','automation','llm','large language'],
-        r: "GenAI is a genuine part of my workflow, not just a buzzword. I use prompt engineering for research acceleration, competitor analysis, and report drafting. I've conceptualised how AI integrates into business processes — shown through Fin-Copilot and Alpha District. I hold a GrowthSchool GenAI certification and actively follow AI developments in the BA space."
-    },
-    {
-        keys: ['power bi','tableau','visualization','visualisation','dashboard','reporting tool'],
-        r: "Power BI and Tableau are on my active learning roadmap — they're next on my upskilling list after SQL. Currently I build dashboards and reporting structures in Excel, which I'm proficient in. I'm targeting Power BI certification within the next few months to round out my data visualisation toolkit."
-    },
-    {
-        keys: ['python','programming','coding','r language','pandas','data science'],
-        r: "Python is not currently in my core toolkit — my technical foundation is SQL, Excel, and GenAI workflows. I'm aware of Python's value for data analysis (pandas, numpy) and it's on my longer-term learning roadmap. Right now I'm focused on deepening my SQL and Power BI skills first."
-    },
-    {
-        keys: ['swot','pestle','gap analysis','framework','business framework','porter','strategy framework'],
-        r: "Business analysis frameworks are central to how I work. I've applied SWOT, PESTLE, and gap analysis in academic projects and professional benchmarking audits. The Alpha District project specifically used multiple frameworks to assess market entry viability and competitive positioning."
-    },
-    // Career & Roles
-    {
-        keys: ['role','job','looking','hire','target','seeking','open to','opportunity','internship','graduate','position'],
-        r: "I'm actively seeking Business Analyst, Strategy Analyst, or Junior Consultant roles — internships or graduate/entry-level positions in London or remotely. My target is analytical roles where I can combine data skills (SQL, Excel) with strategy thinking and clear communication. I'm eligible to work in the UK and available to start promptly."
-    },
-    {
-        keys: ['available','start','notice period','when can','start date','immediate'],
-        r: "I'm available to start promptly — I don't have a long notice period. I'm currently working part-time at McDonald's alongside my MSc, so I can accommodate interview and start timelines flexibly. For the right opportunity, I can prioritise accordingly."
-    },
-    {
-        keys: ['visa','right to work','work permit','uk work','eligible','immigration'],
-        r: "I'm currently in the UK on a Student Visa studying at the University of East London. I'm eligible to work part-time now, and upon completing my MSc I would typically be eligible to apply for a Graduate Visa, which allows two years of work in the UK post-graduation. For specific visa requirements, I'd recommend discussing with your HR team."
-    },
-    {
-        keys: ['salary','compensation','pay','rate','expectation','money'],
-        r: "I'm open to discussing compensation based on the role and its scope. As a graduate/early-career professional targeting London, I'm aligned with standard entry-level and junior BA ranges. I'd rather find the right opportunity with growth potential than optimise purely on starting salary."
-    },
-    {
-        keys: ['remote','hybrid','office','location','work from home','flexible'],
-        r: "I'm based in London and open to office-based, hybrid, or remote roles. I'm comfortable working independently and managing my own output remotely, as I've demonstrated while balancing part-time work and full-time MSc study simultaneously."
-    },
-    {
-        keys: ['industry','sector','finance','tech','retail','consulting','healthcare','preferr'],
-        r: "I'm open across industries — my analytical skill set is transferable. That said, I'm particularly interested in tech, consulting, fintech, and strategy-driven businesses where data insights directly influence decisions. My MSc and GenAI background also make me well-suited for organisations integrating AI into their workflows."
-    },
-    // Personality & Soft Skills
-    {
-        keys: ['why','business analytics','career','background','chose','transition','moved'],
-        r: "My journey into business analytics came from recognising that my B.Tech engineering foundation — strong in structured thinking and quantitative methods — was highly transferable to commercial strategy. At Intellogi, I saw first-hand how data-driven insights shaped leadership decisions. The MSc at UEL was a deliberate step to formalise that transition with a global business context."
-    },
-    {
-        keys: ['strength','strengths','best at','good at','value','bring','offer','unique'],
-        r: "Three core strengths: (1) Translating complex data into clear business narratives — done practically at Intellogi and in academic projects. (2) Structured, engineering-trained thinking applied to commercial problems. (3) Adaptability — relocating to the UK, balancing part-time work with an MSc, and continuously upskilling shows I deliver under real-world pressure."
-    },
-    {
-        keys: ['weakness','weaknesses','improve','development area','working on'],
-        r: "An honest development area is data visualisation tools — Power BI and Tableau are on my roadmap and I'm actively upskilling. I also know that my UK corporate experience is still building, which is why I chose the UEL MSc and took UK-based work proactively. I approach gaps with a structured learning plan rather than avoiding them."
-    },
-    {
-        keys: ['stand out','different','unique','why you','why hire','over others','competitive'],
-        r: "Three things differentiate me: (1) I combine an engineering analytical mindset with commercial strategy training — a rare combination for a BA profile. (2) I've demonstrated real adaptability — relocating internationally, juggling work and MSc simultaneously. (3) I built this interactive AI portfolio myself, which shows initiative and technical creativity beyond the CV. I don't just talk about GenAI — I apply it."
-    },
-    {
-        keys: ['teamwork','team','collaborate','group','colleague','work with others'],
-        r: "Collaboration is something I've practised in high-pressure environments. At McDonald's I coordinate within a 15+ person cross-functional team under time pressure daily. At Intellogi I worked directly with corporate directors and cross-department teams to deliver benchmarking briefs and pipeline reports. I'm comfortable adapting my communication style to the audience."
-    },
-    {
-        keys: ['challenge','difficult','problem','obstacle','hard situation','overcome'],
-        r: "Relocating to the UK for my MSc while building financial independence from scratch was a significant challenge. I managed it by taking on part-time work immediately, staying disciplined with study schedules, and treating every experience — including McDonald's — as a professional development opportunity. It reinforced that I perform well under real constraints."
-    },
-    {
-        keys: ['goal','ambition','five year','future','plan','aspiration','where do you see'],
-        r: "My near-term goal is to secure a Business Analyst or Strategy Analyst role in London where I can build a strong foundation in a commercial environment. Medium-term, I aim to grow into a Senior BA or Strategy Manager role, ideally in a data-led organisation. I'm particularly excited by the intersection of GenAI and business strategy — that's where I see the most interesting work emerging."
-    },
-    {
-        keys: ['communication','present','stakeholder','report','write','explain'],
-        r: "Clear communication is something I've actively developed. At Intellogi, I translated complex market data into concise briefs for corporate directors — people who needed insights, not raw numbers. At UEL, academic assignments required structuring arguments clearly for different audiences. I'm comfortable presenting to both technical and non-technical stakeholders."
-    },
-    {
-        keys: ['agile','scrum','project management','jira','trello','kanban','sprint'],
-        r: "I have a working understanding of Agile principles and project management methodologies from my MSc coursework and self-study. While I haven't worked in a formal Agile development team yet, I apply iterative thinking in my own project work — breaking down deliverables, tracking progress, and adapting based on feedback."
-    },
-    // Certifications
-    {
-        keys: ['certification','certificate','forage','linkedin learning','growthschool','credentials','accreditation'],
-        r: "I hold four certifications: Excel Data Analysis and Data-Driven Strategy from LinkedIn Learning, a Strategy Consulting virtual simulation from Forage, and a GenAI Portfolio certificate from GrowthSchool. I'm planning to add Power BI and an advanced SQL certification to round out my technical stack."
-    },
-    {
-        keys: ['forage','virtual experience','consulting simulation','strategy consulting'],
-        r: "The Forage Strategy Consulting simulation gave me hands-on exposure to a consulting workflow — structuring client problems, building recommendations, and communicating findings clearly. It was a practical complement to my academic strategy coursework and reinforced that consulting-style thinking suits me well."
-    },
-    // Contact & Availability
-    {
-        keys: ['contact','reach','email','connect','interview','meeting','call','discuss'],
-        r: "The best way to reach Saikrishna is via email: saikrishnajella09@gmail.com, or LinkedIn: linkedin.com/in/saikrishnajella09. You can also use the contact form on this page — it goes directly to his inbox. He typically responds within 24 hours and is happy to schedule a call or interview at short notice."
-    },
-    {
-        keys: ['cv','resume','download','application','apply'],
-        r: "You can download Saikrishna's CV directly from this portfolio — click the 'Download CV' button at the top of the page or in the Contact section. It's a current PDF covering his full work history, education, skills, and certifications."
-    },
-    {
-        keys: ['reference','recommendation','referee','vouch'],
-        r: "Saikrishna can provide professional references upon request — from his time at Intellogi Technologies and from academic supervisors at UEL. Please reach out via email at saikrishnajella09@gmail.com to discuss."
-    },
-    // Misc
-    {
-        keys: ['london','uk','move','relocate','why london','why uk'],
-        r: "I moved to London specifically to study at UEL and build an international career. The UK market — particularly London's concentration of consulting, fintech, and tech firms — aligns directly with my target roles in business analysis and strategy. I'm committed to building my career here long-term."
-    },
-    {
-        keys: ['hobby','interest','outside work','personal','free time','passion'],
-        r: "Outside work and study, I'm genuinely interested in how AI is reshaping business workflows — which is why I built this portfolio with an AI twin rather than a static page. I follow developments in GenAI, strategy consulting, and startups. I'm also someone who invests time in structured self-improvement: certifications, projects, and learning by building."
-    }
-];
- 
-function getReply(q) {
-    const l = q.toLowerCase();
-    for (const e of KB) {
-        if (e.keys.some(k => l.includes(k))) return e.r;
-    }
-    return "I might not have a specific answer for that, but here are things I can help with: Saikrishna's work experience, his MSc at UEL, SQL & Excel skills, GenAI projects, the roles he's targeting, or his availability. What would you like to explore?";
-}
- 
-function addMsg(text, who) {
-    const c = document.getElementById('chatMsgs');
-    const d = document.createElement('div');
-    d.className = `msg ${who}`;
-    d.innerHTML = `<div class="msg-av">${who==='bot'?'SJ':'You'}</div><div class="msg-bubble">${text}</div>`;
-    c.appendChild(d);
-    c.scrollTop = c.scrollHeight;
-}
-function showTyping() {
-    const c = document.getElementById('chatMsgs');
-    const d = document.createElement('div');
-    d.className = 'msg bot'; d.id = 'typing';
-    d.innerHTML = `<div class="msg-av">SJ</div><div class="msg-bubble"><div class="typing-dots"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div></div>`;
-    c.appendChild(d); c.scrollTop = c.scrollHeight;
-}
-function clearTyping() { const t=document.getElementById('typing'); if(t) t.remove(); }
- 
-function sendMsg() {
-    const inp = document.getElementById('chatIn');
-    const q = inp.value.trim(); if (!q) return;
-    inp.value = '';
-    addMsg(q, 'user');
-    setTimeout(showTyping, 150);
-    setTimeout(() => { clearTyping(); addMsg(getReply(q), 'bot'); }, 1200);
-}
-function sendQuick(el) {
-    const q = el.textContent;
-    addMsg(q, 'user');
-    setTimeout(showTyping, 150);
-    setTimeout(() => { clearTyping(); addMsg(getReply(q), 'bot'); }, 1200);
-}
- 
-// Contact form with AJAX submission
-document.getElementById('contactForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const btn = document.getElementById('submitBtn');
-    const success = document.getElementById('formSuccess');
-    btn.textContent = 'Sending...';
-    btn.disabled = true;
-    try {
-        const res = await fetch(this.action, {
-            method: 'POST',
-            body: new FormData(this),
-            headers: { 'Accept': 'application/json' }
-        });
-        if (res.ok) {
-            this.reset();
-            btn.style.display = 'none';
-            success.style.display = 'block';
-        } else {
-            btn.textContent = 'Send Message';
-            btn.disabled = false;
-            alert('Something went wrong. Please email directly at saikrishnajella09@gmail.com');
-        }
-    } catch(err) {
-        btn.textContent = 'Send Message';
-        btn.disabled = false;
-        alert('Something went wrong. Please email directly at saikrishnajella09@gmail.com');
-    }
-});
-</script>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
- 

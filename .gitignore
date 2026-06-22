@@ -9,3 +9,7 @@ Thumbs.db
 # Temp files
 *.log
 *.tmp
+
+# Node / secrets
+node_modules/
+.env
