@@ -4,421 +4,279 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Saikrishna Jella — Data, BI & GenAI</title>
+  <meta name="description" content="Saikrishna Jella: MSc International Business Management student building data, BI and GenAI skills. Data & Operations Intern at Foundermatcha, creator of Tallio." />
   <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
 </head>
 <body>
+<div class="app">
 
-  <!-- NAV -->
-  <nav id="navbar">
-    <div class="nav-inner">
-      <a href="#hero" class="nav-logo">SJ<span class="nav-dot">.</span></a>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#experience">Work</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#contact" class="nav-cta">Let's Talk</a></li>
-      </ul>
-      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <a href="#overview" class="brand"><span class="brand-mark">SJ</span> Saikrishna Jella</a>
+    <nav class="top-nav" aria-label="Sections">
+      <a href="#overview">Overview</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="top-actions">
+      <span class="status-pill"><span class="pulse"></span> Open to data &amp; BI roles</span>
+      <a class="btn btn-ghost" href="https://linkedin.com/in/saikrishnajella09" target="_blank" rel="noopener">LinkedIn</a>
     </div>
-  </nav>
+  </header>
 
-  <div class="mobile-menu" id="mobileMenu">
-    <ul>
-      <li><a href="#about" class="ml">About</a></li>
-      <li><a href="#skills" class="ml">Skills</a></li>
-      <li><a href="#experience" class="ml">Work</a></li>
-      <li><a href="#projects" class="ml">Projects</a></li>
-      <li><a href="#education" class="ml">Education</a></li>
-      <li><a href="#contact" class="ml">Contact</a></li>
-    </ul>
-  </div>
+  <div class="layout">
+    <main class="main">
 
-  <!-- HERO -->
-  <section id="hero">
-    <div class="hero-bg-text" aria-hidden="true">AI</div>
-    <div class="hero-inner">
-      <div class="hero-label reveal-up">
-        <span class="dot-pulse"></span>
-        Open to Placement Opportunities · London, UK
-      </div>
-      <h1 class="hero-name reveal-up delay-1">
-        Saikrishna<br /><span class="gradient-text">Jella.</span>
-      </h1>
-      <p class="hero-role reveal-up delay-2">MSc International Business Management (Placement Year) · Data, BI &amp; GenAI</p>
-      <p class="hero-bio reveal-up delay-3">
-        Pivoting from an engineering background into data-driven business and investment analytics — building real BI products like Tallio while completing my MSc with a placement year.
-      </p>
-      <div class="hero-actions reveal-up delay-4">
-        <a href="#contact" class="btn-main">Get In Touch <span class="arr">→</span></a>
-        <a href="#projects" class="btn-ghost">See My Work</a>
-      </div>
-    </div>
-
-    <!-- Floating chips -->
-    <div class="hero-chip chip-1 reveal-float">📊 Power BI</div>
-    <div class="hero-chip chip-2 reveal-float">🤖 GenAI &amp; Prompt Engineering</div>
-    <div class="hero-chip chip-3 reveal-float">💻 React &amp; TypeScript</div>
-    <div class="hero-chip chip-4 reveal-float">🗄️ SQL</div>
-
-    <div class="scroll-cue">
-      <div class="scroll-line"></div>
-      <span>scroll</span>
-    </div>
-  </section>
-
-  <!-- MARQUEE STRIP -->
-  <div class="marquee-strip">
-    <div class="marquee-track">
-      <span>Data Analytics</span><span class="sep">✦</span>
-      <span>Power BI</span><span class="sep">✦</span>
-      <span>SQL Querying</span><span class="sep">✦</span>
-      <span>GenAI &amp; Prompt Engineering</span><span class="sep">✦</span>
-      <span>React &amp; TypeScript</span><span class="sep">✦</span>
-      <span>Business Frameworks</span><span class="sep">✦</span>
-      <span>Investment Analysis</span><span class="sep">✦</span>
-      <span>Stakeholder Reporting</span><span class="sep">✦</span>
-      <span>Business Intelligence</span><span class="sep">✦</span>
-      <span>Data Analytics</span><span class="sep">✦</span>
-      <span>Power BI</span><span class="sep">✦</span>
-      <span>SQL Querying</span><span class="sep">✦</span>
-      <span>GenAI &amp; Prompt Engineering</span><span class="sep">✦</span>
-      <span>React &amp; TypeScript</span><span class="sep">✦</span>
-      <span>Business Frameworks</span><span class="sep">✦</span>
-      <span>Investment Analysis</span><span class="sep">✦</span>
-      <span>Stakeholder Reporting</span><span class="sep">✦</span>
-      <span>Business Intelligence</span><span class="sep">✦</span>
-    </div>
-  </div>
-
-  <!-- ABOUT -->
-  <section id="about" class="section">
-    <div class="container split-layout">
-      <div class="split-label">
-        <span class="section-num">01</span>
-        <h2 class="section-heading reveal-up">About<br />Me.</h2>
-      </div>
-      <div class="split-body reveal-up delay-1">
-        <p class="about-text">
-          I'm an MSc <strong>International Business Management</strong> student at the University of East London (graduating 2027, with a placement year), building practical data and BI capability through live project work. My toolkit spans Excel, foundational SQL, Power BI, and applied generative AI.
-        </p>
-        <p class="about-text">
-          Engineering numeracy from a B.Tech background translated into a deliberate pivot toward data analytics, business operations, and investment management. I'm actively building <strong>Tallio</strong> — a multi-tenant SaaS billing and BI platform — as a hands-on lab for dashboards, KPI reporting, and AI-driven analytics.
-        </p>
-        <div class="about-stats">
-          <div class="stat reveal-up delay-2">
-            <span class="stat-num">3</span>
-            <span class="stat-label">Live Projects Shipped</span>
-          </div>
-          <div class="stat reveal-up delay-3">
-            <span class="stat-num">2027</span>
-            <span class="stat-label">Expected MSc Graduation</span>
-          </div>
-          <div class="stat reveal-up delay-4">
-            <span class="stat-num">6<span class="stat-plus">+</span></span>
-            <span class="stat-label">Tools &amp; Frameworks</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section id="skills" class="section dark-section">
-    <div class="container">
-      <div class="section-header-centered">
-        <span class="section-num light">02</span>
-        <h2 class="section-heading light reveal-up">My Toolkit.</h2>
-        <p class="section-sub light reveal-up delay-1">Everything I use to deliver results</p>
-      </div>
-
-      <div class="skills-bento reveal-up delay-2">
-
-        <div class="bento-card bento-wide accent-card">
-          <div class="bento-icon">🧭</div>
-          <h3>Business Frameworks</h3>
-          <p>Strategic frameworks applied to real coursework: Porter's Value Chain &amp; Value Network, IIRC Six Capitals, SAFe strategy evaluation, and Gibbs Reflective Cycle — paired with strong stakeholder communication.</p>
+      <!-- OVERVIEW -->
+      <section id="overview" class="panel panel-hero">
+        <p class="eyebrow">London · MSc International Business Management (Placement Year)</p>
+        <h1>Data, BI &amp; GenAI for <span class="accent">business operations.</span></h1>
+        <p class="lede">I'm a data and operations intern at Foundermatcha, and I build my own products. Tallio, my AI-powered billing and BI platform, is built to help small businesses turn everyday transactions into clear insight.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">See my work</a>
+          <a class="btn btn-ghost" href="#contact">Get in touch</a>
         </div>
 
-        <div class="bento-card">
-          <div class="bento-icon">📈</div>
-          <h3>Data &amp; Analytics</h3>
-          <div class="pill-group">
-            <span class="pill">Excel (VLOOKUP/XLOOKUP)</span>
-            <span class="pill">Pivot Tables</span>
-            <span class="pill">Power BI</span>
-            <span class="pill">SQL Joins</span>
+        <div class="kpis">
+          <div class="kpi">
+            <span class="kpi-label">Current role</span>
+            <span class="kpi-value">Data &amp; Ops Intern</span>
+            <span class="kpi-sub">Foundermatcha · since Aug 2026</span>
+          </div>
+          <div class="kpi">
+            <span class="kpi-label">Projects built</span>
+            <span class="kpi-value">3</span>
+            <span class="kpi-sub">including a live SaaS (Tallio)</span>
+          </div>
+          <div class="kpi">
+            <span class="kpi-label">Certifications</span>
+            <span class="kpi-value">4</span>
+            <span class="kpi-sub">AI Fluency, strategy and analytics</span>
+          </div>
+          <div class="kpi">
+            <span class="kpi-label">Degree</span>
+            <span class="kpi-value">MSc</span>
+            <span class="kpi-sub">University of East London · 2027</span>
           </div>
         </div>
+      </section>
 
-        <div class="bento-card">
-          <div class="bento-icon">🤖</div>
-          <h3>AI &amp; Productivity</h3>
-          <div class="pill-group">
-            <span class="pill">Prompt Engineering</span>
-            <span class="pill">Anthropic AI Fluency</span>
-            <span class="pill">Claude / ChatGPT / Gemini</span>
-            <span class="pill">Microsoft 365</span>
+      <!-- EXPERIENCE -->
+      <section id="experience" class="panel">
+        <header class="panel-head">
+          <h2>Experience</h2>
+          <div class="filters" role="group" aria-label="Filter experience">
+            <button class="chip is-active" data-filter="all">All</button>
+            <button class="chip" data-filter="data">Data</button>
+            <button class="chip" data-filter="ops">Operations</button>
+            <button class="chip" data-filter="sales">Sales</button>
           </div>
-        </div>
+        </header>
 
-        <div class="bento-card">
-          <div class="bento-icon">💻</div>
-          <h3>Product &amp; Web Dev</h3>
-          <div class="pill-group">
-            <span class="pill">React 19</span>
-            <span class="pill">TypeScript</span>
-            <span class="pill">Firebase Firestore</span>
-            <span class="pill">Git / GitHub</span>
-          </div>
-        </div>
-
-        <div class="bento-card bento-wide">
-          <div class="bento-icon">🛠️</div>
-          <h3>Tools</h3>
-          <div class="tools-grid">
-            <div class="tool-item"><span class="tool-emoji">📗</span> Microsoft Excel</div>
-            <div class="tool-item"><span class="tool-emoji">📊</span> Power BI</div>
-            <div class="tool-item"><span class="tool-emoji">🗄️</span> SQL</div>
-            <div class="tool-item"><span class="tool-emoji">⚛️</span> React &amp; TypeScript</div>
-            <div class="tool-item"><span class="tool-emoji">🔥</span> Firebase</div>
-            <div class="tool-item"><span class="tool-emoji">🤖</span> Claude / ChatGPT / Gemini</div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section id="experience" class="section">
-    <div class="container">
-      <div class="split-label">
-        <span class="section-num">03</span>
-        <h2 class="section-heading reveal-up">Work<br />Experience.</h2>
-      </div>
-
-      <div class="exp-list">
-
-        <div class="exp-item reveal-up delay-1">
-          <div class="exp-num">01</div>
-          <div class="exp-body">
-            <div class="exp-top">
-              <div>
-                <h3 class="exp-title">Business Development Associate</h3>
-                <p class="exp-company">Intellogi Technologies · India</p>
+        <ol class="timeline">
+          <li class="tl-item featured" data-tags="data ops">
+            <div class="tl-date">Aug 2026 – Present</div>
+            <div class="tl-body">
+              <div class="tl-top">
+                <h3>Data &amp; Operations Intern</h3>
+                <span class="tag tag-live">Current</span>
               </div>
-              <span class="exp-date">Jan 2024 – Jul 2025</span>
-            </div>
-            <ul class="exp-bullets">
-              <li>Supported B2B sales and client outreach: prospect research, CRM updates, proposal preparation, and follow-up coordination.</li>
-              <li>Used Excel for prospect tracking, pipeline reporting, and basic conversion analysis to inform outreach prioritisation.</li>
-              <li>Coordinated cross-functional follow-ups between product, sales, and client stakeholders.</li>
-            </ul>
-            <div class="exp-tags">
-              <span>B2B Sales</span><span>CRM</span><span>Excel</span><span>Pipeline Reporting</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="exp-item reveal-up delay-2">
-          <div class="exp-num">02</div>
-          <div class="exp-body">
-            <div class="exp-top">
-              <div>
-                <h3 class="exp-title">Crew Member (Part-Time)</h3>
-                <p class="exp-company">McDonald's · London, UK</p>
+              <p class="tl-org">Foundermatcha · London</p>
+              <ul>
+                <li>Building financial cash flow forecasting models for both B2B and B2C scenarios.</li>
+                <li>Running data-driven A/B tests on targeted cold email outreach.</li>
+                <li>Using analytics and generative AI to streamline operational workflows and design investor materials.</li>
+              </ul>
+              <div class="tags">
+                <span class="tag">Forecasting</span><span class="tag">A/B testing</span><span class="tag">GenAI</span><span class="tag">Operations</span>
               </div>
-              <span class="exp-date">2025 – Present</span>
             </div>
-            <ul class="exp-bullets">
-              <li>Operate in a high-volume, time-pressured customer service environment alongside full-time MSc studies.</li>
-              <li>Balance accuracy, speed, and team coordination across shifts; reliable performance under operational constraints.</li>
+          </li>
+
+          <li class="tl-item" data-tags="ops">
+            <div class="tl-date">Jul 2026 – Present</div>
+            <div class="tl-body">
+              <div class="tl-top"><h3>Team Member (Part-Time)</h3></div>
+              <p class="tl-org">Co-op Retail · London</p>
+              <ul>
+                <li>Fast-paced store operations, keeping shelves stocked and checkouts running through peak trade.</li>
+                <li>Following Health &amp; Safety and standard operating procedures while studying full time.</li>
+              </ul>
+              <div class="tags"><span class="tag">Operations</span><span class="tag">Process</span></div>
+            </div>
+          </li>
+
+          <li class="tl-item" data-tags="ops">
+            <div class="tl-date">Oct 2025 – Jul 2026</div>
+            <div class="tl-body">
+              <div class="tl-top"><h3>Crew Member (Part-Time)</h3></div>
+              <p class="tl-org">McDonald's · London</p>
+              <ul>
+                <li>Fast, accurate service in a high-volume team, under pressure.</li>
+              </ul>
+              <div class="tags"><span class="tag">Customer service</span><span class="tag">Teamwork</span></div>
+            </div>
+          </li>
+
+          <li class="tl-item" data-tags="sales data">
+            <div class="tl-date">Jan 2024 – Jul 2025</div>
+            <div class="tl-body">
+              <div class="tl-top"><h3>Business Development Associate</h3></div>
+              <p class="tl-org">Intellogi Technologies</p>
+              <ul>
+                <li>B2B prospect research, lead qualification, CRM data management and proposal preparation.</li>
+                <li>Used Excel to track prospects, report on the sales pipeline and run conversion analysis that guided outreach.</li>
+              </ul>
+              <div class="tags"><span class="tag">B2B sales</span><span class="tag">CRM</span><span class="tag">Excel</span><span class="tag">Pipeline reporting</span></div>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects" class="panel">
+        <header class="panel-head"><h2>Projects</h2><span class="muted">Self-built, independent work</span></header>
+        <div class="project-grid">
+
+          <article class="project featured">
+            <div class="project-top">
+              <span class="tag tag-live">Live build · 2025 – Present</span>
+            </div>
+            <h3>Tallio</h3>
+            <p class="project-sub">AI-powered universal billing &amp; business intelligence SaaS</p>
+            <p>I built Tallio on my own to help small businesses turn raw transactions into revenue, customer and product insight, with billing and BI in one place. It's multi-tenant, with interactive KPI dashboards and sales-history tracking.</p>
+            <div class="tags">
+              <span class="tag">React 19</span><span class="tag">TypeScript</span><span class="tag">Tailwind</span><span class="tag">Firebase</span><span class="tag">Recharts</span>
+            </div>
+            <a class="project-link" href="https://github.com/thevirtualkrishnaaa" target="_blank" rel="noopener">View on GitHub →</a>
+          </article>
+
+          <article class="project">
+            <div class="project-top"><span class="tag">2026 – Present</span></div>
+            <h3>VirtualTwin</h3>
+            <p class="project-sub">This site, plus an AI chat about my work</p>
+            <p>A portfolio where recruiters can talk to an AI version of me about my experience and projects. It shows prompt design, context control and LLM API integration.</p>
+            <div class="tags"><span class="tag">Prompt engineering</span><span class="tag">LLM API</span><span class="tag">Express</span></div>
+          </article>
+
+          <article class="project">
+            <div class="project-top"><span class="tag">In development · 2025 – Present</span></div>
+            <h3>Alpha District</h3>
+            <p class="project-sub">Independent apparel brand for Gen Z fitness fans</p>
+            <p>Brand strategy, pitch deck and a print-on-demand launch model (Shopify and Printful), with an Instagram content strategy.</p>
+            <div class="tags"><span class="tag">Brand strategy</span><span class="tag">Shopify</span><span class="tag">Printful</span></div>
+          </article>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section id="skills" class="panel">
+        <header class="panel-head"><h2>Skills</h2></header>
+        <div class="skill-grid">
+          <div class="skill-card">
+            <h3>Data &amp; Analytics</h3>
+            <div class="tags"><span class="tag">Excel</span><span class="tag">Power BI</span><span class="tag">SQL</span><span class="tag">KPI reporting</span><span class="tag">Cash flow forecasting</span><span class="tag">Data cleaning</span></div>
+          </div>
+          <div class="skill-card">
+            <h3>Business &amp; Sales</h3>
+            <div class="tags"><span class="tag">B2B prospecting</span><span class="tag">CRM</span><span class="tag">Proposals</span><span class="tag">Pipeline reporting</span><span class="tag">Business analysis</span></div>
+          </div>
+          <div class="skill-card">
+            <h3>AI &amp; Productivity</h3>
+            <div class="tags"><span class="tag">Prompt engineering</span><span class="tag">Claude</span><span class="tag">ChatGPT</span><span class="tag">Gemini</span><span class="tag">Notion</span><span class="tag">Microsoft 365</span></div>
+          </div>
+          <div class="skill-card">
+            <h3>Build</h3>
+            <div class="tags"><span class="tag">React 19</span><span class="tag">TypeScript</span><span class="tag">Tailwind</span><span class="tag">Firebase</span><span class="tag">Git / GitHub</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EDUCATION -->
+      <section id="education" class="panel">
+        <header class="panel-head"><h2>Education &amp; Certifications</h2></header>
+        <div class="edu-grid">
+          <div class="edu-card">
+            <span class="edu-date">2025 – 2027 (expected)</span>
+            <h3>MSc International Business Management (Placement Year)</h3>
+            <p class="muted">University of East London</p>
+            <p>Modules: Project Management &amp; Supply Chain, Business Analysis, AI and Digital Marketing, People Management, Global Business Strategy Ethics. Dissertation on digital payment adoption in South Asia.</p>
+          </div>
+          <div class="edu-card">
+            <span class="edu-date">Oct 2020 – Aug 2023</span>
+            <h3>B.Tech, Electronics &amp; Communication Engineering</h3>
+            <p class="muted">India · studied in English</p>
+            <p>Advanced mathematics, control systems and embedded systems. The quantitative base for my move into data.</p>
+          </div>
+          <div class="edu-card edu-wide">
+            <h3>Certifications &amp; programmes</h3>
+            <ul class="cert-list">
+              <li><strong>Anthropic</strong> · AI Fluency: Framework &amp; Foundations</li>
+              <li><strong>Making The Leap</strong> · Morgan Stanley Investment Management Corporate Insight Day</li>
+              <li><strong>Forage</strong> · Strategy Consulting job simulation</li>
+              <li><strong>LinkedIn</strong> · Data-Driven Decision-Making for Business Professionals</li>
             </ul>
-            <div class="exp-tags">
-              <span>Operations</span><span>Time Management</span><span>Teamwork</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="panel panel-contact">
+        <h2>Let's talk.</h2>
+        <p class="lede">Open to data, BI and operations roles, internships and collaborations. The fastest way to reach me is email.</p>
+        <div class="contact-row">
+          <a class="btn btn-primary" href="mailto:saikrishnajella09@gmail.com">saikrishnajella09@gmail.com</a>
+          <a class="btn btn-ghost" href="https://linkedin.com/in/saikrishnajella09" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn btn-ghost" href="https://github.com/thevirtualkrishnaaa" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </section>
+
+      <footer class="footer">© 2026 Saikrishna Jella · London, UK</footer>
+    </main>
+
+    <!-- CHAT: docked panel on wide screens, floating on mobile -->
+    <aside class="dock" aria-label="Chat with VirtualKrishna">
+      <div class="dock-head"><span class="pulse"></span> Ask VirtualKrishna</div>
+      <p class="dock-sub">An AI version of me, answering from my CV and projects.</p>
+
+      <button id="vkLauncher" class="vk-launcher" aria-label="Chat with VirtualKrishna">
+        <span class="vk-launcher-icon">💬</span>
+        <span class="vk-launcher-text">Chat with VirtualKrishna</span>
+      </button>
+
+      <div id="vkPanel" class="vk-panel">
+        <div class="vk-header">
+          <div class="vk-header-info">
+            <span class="vk-avatar">SJ</span>
+            <div>
+              <span class="vk-name">VirtualKrishna</span>
+              <span class="vk-status"><span class="vk-dot"></span> AI version of Saikrishna</span>
             </div>
           </div>
+          <button id="vkClose" class="vk-close" aria-label="Close chat">✕</button>
         </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects" class="section dark-section">
-    <div class="container">
-      <div class="section-header-centered">
-        <span class="section-num light">04</span>
-        <h2 class="section-heading light reveal-up">Projects.</h2>
-        <p class="section-sub light reveal-up delay-1">Real work, real outcomes</p>
-      </div>
-
-      <div class="proj-grid">
-
-        <div class="proj-card reveal-up delay-2">
-          <div class="proj-number">01</div>
-          <div class="proj-type">Live Build · 2025–Present</div>
-          <h3 class="proj-title">Tallio</h3>
-          <p class="proj-tagline">AI-Powered Universal Billing &amp; Business Intelligence SaaS</p>
-          <p class="proj-desc">
-            Designing and building a multi-tenant SaaS platform combining universal billing with embedded business intelligence for SMBs. Implemented interactive KPI dashboards and sales-history tracking, and scoping an AI analytics layer to surface revenue, customer, and product insights.
-          </p>
-          <div class="proj-chips">
-            <span>React 19</span><span>TypeScript</span><span>Tailwind CSS</span><span>Firebase</span><span>Recharts</span><span>AI Analytics</span>
-          </div>
+        <div id="vkMessages" class="vk-messages">
+          <div class="vk-msg vk-msg-bot">Hey, I'm VirtualKrishna 👋 Ask me about Foundermatcha, Tallio, or my skills.</div>
         </div>
-
-        <div class="proj-card reveal-up delay-3">
-          <div class="proj-number">02</div>
-          <div class="proj-type">Live · 2025–Present</div>
-          <h3 class="proj-title">VirtualTwin</h3>
-          <p class="proj-tagline">AI Chat Portfolio Site — the one you're on right now</p>
-          <p class="proj-desc">
-            Built an AI-powered "virtual twin" portfolio site that lets recruiters converse with a chat agent about my background, projects, and skills. Demonstrates applied prompt engineering, context design, and integration of LLM APIs with a static front end.
-          </p>
-          <div class="proj-chips">
-            <span>Prompt Engineering</span><span>OpenAI API</span><span>Node / Express</span><span>GitHub Pages</span>
-          </div>
+        <div class="vk-suggest">
+          <button class="vk-chip" data-q="What do you do at Foundermatcha?">Foundermatcha work</button>
+          <button class="vk-chip" data-q="Tell me about Tallio.">About Tallio</button>
+          <button class="vk-chip" data-q="What are you looking for next?">Next role</button>
         </div>
-
-        <div class="proj-card reveal-up delay-4">
-          <div class="proj-number">03</div>
-          <div class="proj-type">In Development · 2025–Present</div>
-          <h3 class="proj-title">Alpha District</h3>
-          <p class="proj-tagline">Premium Gym-to-Street Apparel Brand</p>
-          <p class="proj-desc">
-            Independent venture developing brand strategy, a pitch deck, and a Shopify + Printful print-on-demand launch model targeting Gen Z fitness consumers. Built an Instagram content strategy and a 10-minute investor pitch.
-          </p>
-          <div class="proj-chips">
-            <span>Brand Strategy</span><span>Shopify</span><span>Printful</span><span>Pitch Deck</span><span>Instagram Marketing</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- EDUCATION -->
-  <section id="education" class="section">
-    <div class="container">
-      <div class="split-label">
-        <span class="section-num">05</span>
-        <h2 class="section-heading reveal-up">Education &amp;<br />Certs.</h2>
-      </div>
-
-      <div class="edu-list reveal-up delay-1">
-
-        <div class="edu-row">
-          <div class="edu-year">2025–2027 (expected)</div>
-          <div class="edu-info">
-            <h3>MSc International Business Management (with Placement Year)</h3>
-            <p class="edu-inst">University of East London, UK</p>
-            <p class="edu-detail">Global Strategy &amp; Management · Business Ethics · Financial Ratio Analysis · Strategy Evaluation. Notable: Unilever PLC sustainability &amp; climate-change report using Porter's Value Chain and IIRC Six Capitals frameworks.</p>
-          </div>
-          <div class="edu-badge">MSc</div>
-        </div>
-
-        <div class="edu-divider"></div>
-
-        <div class="edu-row">
-          <div class="edu-year">2020–2023</div>
-          <div class="edu-info">
-            <h3>B.Tech — Electronics &amp; Communication Engineering</h3>
-            <p class="edu-inst">India</p>
-            <p class="edu-detail">Quantitative and analytical foundation supporting a deliberate pivot into data-driven business and investment work.</p>
-          </div>
-          <div class="edu-badge">B.Tech</div>
-        </div>
-
-      </div>
-
-      <div class="cert-block reveal-up delay-2">
-        <h3 class="cert-heading">Certifications</h3>
-        <div class="cert-list">
-          <div class="cert-row"><span class="cert-icon">✦</span><span>AI Fluency: Framework &amp; Foundations (Completed)</span><em>Anthropic</em></div>
-          <div class="cert-row"><span class="cert-icon">✦</span><span>Invited to Investment Management Corporate Insight Day (2025)</span><em>Morgan Stanley / Making The Leap</em></div>
-          <div class="cert-row"><span class="cert-icon">✦</span><span>Student Ambassador Program 2026 (Applicant)</span><em>Google Gemini</em></div>
+        <div class="vk-input-row">
+          <input id="vkInput" class="vk-input" type="text" placeholder="Ask about my experience…" maxlength="500" autocomplete="off" />
+          <button id="vkSend" class="vk-send" aria-label="Send">→</button>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="section contact-section">
-    <div class="container contact-inner">
-      <span class="section-num light">06</span>
-      <h2 class="contact-heading reveal-up">Let's<br /><span class="gradient-text">Work Together.</span></h2>
-      <p class="contact-sub reveal-up delay-1">Open to placement opportunities, internships, and collaborations in data, BI, and investment analytics.</p>
-
-      <div class="contact-links reveal-up delay-2">
-        <a href="mailto:saikrishnajella09@gmail.com" class="contact-link-card">
-          <span class="cl-icon">✉</span>
-          <div>
-            <span class="cl-label">Email</span>
-            <span class="cl-val">saikrishnajella09@gmail.com</span>
-          </div>
-          <span class="cl-arr">→</span>
-        </a>
-        <a href="https://linkedin.com/in/saikrishnajella09" target="_blank" rel="noopener" class="contact-link-card">
-          <span class="cl-icon">💼</span>
-          <div>
-            <span class="cl-label">LinkedIn</span>
-            <span class="cl-val">saikrishnajella09</span>
-          </div>
-          <span class="cl-arr">→</span>
-        </a>
-        <a href="https://github.com/thevirtualkrishnaaa" target="_blank" rel="noopener" class="contact-link-card">
-          <span class="cl-icon">🐙</span>
-          <div>
-            <span class="cl-label">GitHub</span>
-            <span class="cl-val">thevirtualkrishnaaa</span>
-          </div>
-          <span class="cl-arr">→</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <span>© 2026 Saikrishna Jella</span>
-    <span class="footer-sep">·</span>
-    <span>London, UK</span>
-    <span class="footer-sep">·</span>
-    <span>Crafted with HTML, CSS &amp; JS</span>
-  </footer>
-
-  <!-- VIRTUALKRISHNA CHAT WIDGET -->
-  <button id="vkLauncher" class="vk-launcher" aria-label="Chat with VirtualKrishna">
-    <span class="vk-launcher-icon">💬</span>
-    <span class="vk-launcher-text">Chat with VirtualKrishna</span>
-  </button>
-
-  <div id="vkPanel" class="vk-panel">
-    <div class="vk-header">
-      <div class="vk-header-info">
-        <span class="vk-avatar">SJ</span>
-        <div>
-          <span class="vk-name">VirtualKrishna</span>
-          <span class="vk-status"><span class="vk-dot"></span> AI version of Saikrishna</span>
-        </div>
-      </div>
-      <button id="vkClose" class="vk-close" aria-label="Close chat">✕</button>
-    </div>
-    <div id="vkMessages" class="vk-messages">
-      <div class="vk-msg vk-msg-bot">
-        Hey, I'm VirtualKrishna 👋 Ask me anything about Saikrishna's experience, skills, or projects.
-      </div>
-    </div>
-    <div class="vk-input-row">
-      <input id="vkInput" class="vk-input" type="text" placeholder="Ask about my experience…" maxlength="500" autocomplete="off" />
-      <button id="vkSend" class="vk-send" aria-label="Send">→</button>
-    </div>
+    </aside>
   </div>
+</div>
 
   <script src="script.js"></script>
 </body>

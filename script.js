@@ -1,66 +1,16 @@
-// Navbar on scroll
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 30);
-  updateActiveNav();
-}, { passive: true });
+// ── Experience filters ──────────────────────────────
+const filterButtons = document.querySelectorAll('.filters .chip');
+const timelineItems = document.querySelectorAll('.tl-item');
 
-// Active nav link
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-links a');
-
-function updateActiveNav() {
-  let current = '';
-  sections.forEach(s => {
-    if (window.scrollY >= s.offsetTop - 120) current = s.id;
-  });
-  navLinks.forEach(a => {
-    a.classList.toggle('active', a.getAttribute('href') === `#${current}`);
-  });
-}
-
-// Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const target = document.querySelector(a.getAttribute('href'));
-    if (!target) return;
-    e.preventDefault();
-    target.scrollIntoView({ behavior: 'smooth' });
-    mobileMenu.classList.remove('open');
-    hamburger.classList.remove('open');
-  });
-});
-
-// Hamburger
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobileMenu');
-hamburger.addEventListener('click', () => {
-  hamburger.classList.toggle('open');
-  mobileMenu.classList.toggle('open');
-});
-document.querySelectorAll('.ml').forEach(l => {
-  l.addEventListener('click', () => {
-    hamburger.classList.remove('open');
-    mobileMenu.classList.remove('open');
-  });
-});
-
-// Scroll reveal
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-
-document.querySelectorAll('.reveal-up, .reveal-float').forEach(el => observer.observe(el));
-
-// Hero elements animate on load
-window.addEventListener('load', () => {
-  document.querySelectorAll('#hero .reveal-up, #hero .reveal-float').forEach(el => {
-    el.classList.add('visible');
+filterButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const filter = btn.dataset.filter;
+    filterButtons.forEach(b => b.classList.toggle('is-active', b === btn));
+    timelineItems.forEach(item => {
+      const tags = (item.dataset.tags || '').split(' ');
+      const show = filter === 'all' || tags.includes(filter);
+      item.classList.toggle('is-hidden', !show);
+    });
   });
 });
 
@@ -77,12 +27,10 @@ let vkBusy = false;
 
 function vkOpen() {
   vkPanel.classList.add('open');
-  vkLauncher.classList.add('hidden');
   vkInput.focus();
 }
 function vkCloseChat() {
   vkPanel.classList.remove('open');
-  vkLauncher.classList.remove('hidden');
 }
 
 vkLauncher.addEventListener('click', vkOpen);
@@ -114,8 +62,8 @@ function vkAddError(text) {
   vkMessages.scrollTop = vkMessages.scrollHeight;
 }
 
-async function vkSendMessage() {
-  const text = vkInput.value.trim();
+async function vkSendMessage(overrideText) {
+  const text = (overrideText ?? vkInput.value).trim();
   if (!text || vkBusy) return;
 
   vkBusy = true;
@@ -147,7 +95,7 @@ async function vkSendMessage() {
     vkHistory = vkHistory.slice(-12);
   } catch (err) {
     typingEl.remove();
-    vkAddError('Could not reach the server. Make sure it is running locally.');
+    vkAddError('Could not reach the server. Check that the chat backend is running.');
   } finally {
     vkBusy = false;
     vkSend.disabled = false;
@@ -155,7 +103,12 @@ async function vkSendMessage() {
   }
 }
 
-vkSend.addEventListener('click', vkSendMessage);
+vkSend.addEventListener('click', () => vkSendMessage());
 vkInput.addEventListener('keydown', e => {
   if (e.key === 'Enter') vkSendMessage();
+});
+
+// Suggested question chips
+document.querySelectorAll('.vk-chip').forEach(chip => {
+  chip.addEventListener('click', () => vkSendMessage(chip.dataset.q));
 });
