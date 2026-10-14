@@ -2,13 +2,14 @@ require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const rateLimit = require('express-rate-limit');
-const OpenAI = require('openai');
+const { GoogleGenAI } = require('@google/genai');
 
-if (!process.env.OPENAI_API_KEY) {
-  console.error('Missing OPENAI_API_KEY in .env — server will not be able to answer chat requests.');
+if (!process.env.GEMINI_API_KEY) {
+  console.error('Missing GEMINI_API_KEY in .env — server will not be able to answer chat requests.');
 }
 
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-2.5-flash';
+const genai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -82,18 +83,26 @@ app.post('/api/chat', chatLimiter, async (req, res) => {
           .map(m => ({ role: m.role, content: m.content.slice(0, 500) }))
       : [];
 
-    const completion = await openai.chat.completions.create({
-      model: 'gpt-4o-mini',
-      messages: [
-        { role: 'system', content: SYSTEM_PROMPT },
-        ...safeHistory,
-        { role: 'user', content: message.trim() },
-      ],
-      max_tokens: 300,
-      temperature: 0.6,
+    // Gemini uses "model" instead of "assistant" for prior bot turns
+    const contents = [
+      ...safeHistory.map(m => ({
+        role: m.role === 'assistant' ? 'model' : 'user',
+        parts: [{ text: m.content }],
+      })),
+      { role: 'user', parts: [{ text: message.trim() }] },
+    ];
+
+    const response = await genai.models.generateContent({
+      model: GEMINI_MODEL,
+      contents,
+      config: {
+        systemInstruction: SYSTEM_PROMPT,
+        maxOutputTokens: 300,
+        temperature: 0.6,
+      },
     });
 
-    const reply = completion.choices[0]?.message?.content?.trim() || "Sorry, I couldn't generate a response.";
+    const reply = response.text?.trim() || "Sorry, I couldn't generate a response.";
     res.json({ reply });
   } catch (err) {
     console.error('Chat error:', err.message);
