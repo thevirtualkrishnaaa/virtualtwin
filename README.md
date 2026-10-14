@@ -1,63 +1,116 @@
-# 🧠 Virtual Twin — Saikrishna Jella's Interactive Portfolio
+# Saikrishna Jella — Portfolio with VirtualKrishna
 
-> A bold, modern portfolio with **VirtualKrishna** — a real GPT-powered AI chat that answers questions about my background, skills, and projects as if it were me.
+A dashboard-style portfolio for **Saikrishna Jella**, with **VirtualKrishna**: an AI chat that answers questions about his experience, projects and skills in the first person, using only facts from his CV.
 
----
-
-## What Is This?
-
-A personal portfolio site for Saikrishna Jella, Business Analyst & MSc International Business Management student. It features a bold, editorial design and an AI chat widget (**VirtualKrishna**) backed by the OpenAI API, grounded in my actual CV so it only answers from real facts.
+🔗 **Live site:** https://thevirtualkrishnaaa.github.io/virtualtwin/ (design only, see [Live vs. local](#live-vs-local))
 
 ---
 
-## Tech Stack
+## Features
+
+- **Dashboard layout:** a top bar, KPI tiles, and panel-based sections for a clean, data-led look.
+- **Experience timeline** with filters for Data, Operations and Sales.
+- **Project showcase:** Tallio (a self-built billing and BI SaaS), VirtualTwin (this site), and Alpha District.
+- **VirtualKrishna chat:** asks questions about the candidate, with suggestion chips for common queries.
+- **Responsive:** the chat is docked on the side on desktop and becomes a floating button on mobile.
+
+---
+
+## Tech stack
 
 | Layer | Choice |
 |---|---|
-| Markup / Styling | HTML5, vanilla CSS (custom properties), Syne + Inter fonts |
-| Frontend Logic | Vanilla JavaScript |
+| Markup & styling | HTML5, CSS custom properties, Inter, Syne and JetBrains Mono fonts |
+| Frontend | Vanilla JavaScript (no framework or build step) |
 | Backend | Node.js + Express |
-| AI | OpenAI API (`gpt-4o-mini`), via a backend proxy so the key is never exposed to the browser |
-| Rate Limiting | `express-rate-limit` (15 requests / 15 min per IP) |
+| AI | Google Gemini API (`gemini-2.5-flash` by default), called from the server |
+| Rate limiting | `express-rate-limit`: 15 requests per 15 minutes per IP |
 
 ---
 
-## ⚠️ Important: Live Demo vs. Local Run
+## Quick start
 
-This repo is hosted on **GitHub Pages**, which only serves static files — it **cannot run the Node/Express backend**. That means:
-
-- The portfolio's design, layout, and content are fully visible on the GitHub Pages link.
-- The **VirtualKrishna AI chat only works when running the project locally**, since it depends on `server.js` and a private OpenAI API key.
-
-## Running Locally (with AI chat)
+You need [Node.js](https://nodejs.org) (version 18 or later) and a Gemini API key from [Google AI Studio](https://aistudio.google.com/).
 
 ```bash
+git clone https://github.com/thevirtualkrishnaaa/virtualtwin.git
+cd virtualtwin
 npm install
-cp .env.example .env   # then add your own OPENAI_API_KEY
+```
+
+Create a `.env` file in the project root:
+
+```bash
+echo "GEMINI_API_KEY=your-key-here" > .env
+```
+
+Then start the server:
+
+```bash
 npm start
 ```
 
-Visit `http://localhost:3000` — the chat widget (bottom-right) will be fully functional.
+Open **http://localhost:3000**.
 
 ---
 
-## Project Structure
+## Configuration
+
+Settings live in `.env` (copy from `.env.example`):
+
+| Variable | Required | Default | Purpose |
+|---|---|---|---|
+| `GEMINI_API_KEY` | Yes | — | Your Gemini API key. Keep it secret. |
+| `GEMINI_MODEL` | No | `gemini-2.5-flash` | Which Gemini model answers chats |
+| `PORT` | No | `3000` | Port for the local server |
+
+---
+
+## Customising the content
+
+- **Facts the chatbot uses:** edit the `SYSTEM_PROMPT` in `server.js`. The bot only answers from what's written there, so keep it accurate and up to date.
+- **Page content:** edit `index.html`. Experience, projects, skills and education are each a separate section.
+- **Styling:** colours and fonts are CSS variables at the top of `styles.css`.
+
+---
+
+## Live vs. local
+
+GitHub Pages only serves static files, so it **cannot run the Node/Express server**. That means:
+
+- The design and content are visible on the live link.
+- The **VirtualKrishna chat only works when the server is running**, because it needs `server.js` and your private API key.
+
+---
+
+## Project structure
 
 ```
 virtualtwin/
-├── index.html        ← Portfolio markup + VirtualKrishna chat widget
-├── styles.css         ← All styling
-├── script.js          ← Frontend interactivity + chat widget logic
-├── server.js          ← Express backend, proxies OpenAI chat requests securely
-├── package.json
-├── .env.example       ← Template for required environment variables
-└── assets/
-    └── cv.pdf         ← My CV/resume
+├── index.html        ← Page markup and chat widget
+├── styles.css        ← All styling (dashboard layout, chat, responsive rules)
+├── script.js         ← Experience filters and chat widget logic
+├── server.js         ← Express server; sends chat requests to Gemini
+├── package.json      ← Dependencies and start script
+├── .env.example      ← Template for environment variables
+└── assets/           ← Images and documents
 ```
 
 ---
 
-## Security Notes
+## Security notes
 
-- The OpenAI API key lives only in a local `.env` file — never committed, never sent to the browser.
-- All chat requests are proxied through `server.js`, which validates input length, limits conversation history, and rate-limits per IP.
+- The Gemini API key lives only in your local `.env` file, which is git-ignored. It's never sent to the browser.
+- Chat requests go through `server.js`, which:
+  - limits each message to 500 characters,
+  - keeps only the most recent conversation turns,
+  - rate-limits each visitor's IP address.
+- Set a monthly spending limit or quota in your Google Cloud / AI Studio account to avoid unexpected costs.
+
+---
+
+## Contact
+
+- Email: saikrishnajella09@gmail.com
+- LinkedIn: [linkedin.com/in/saikrishnajella09](https://linkedin.com/in/saikrishnajella09)
+- GitHub: [github.com/thevirtualkrishnaaa](https://github.com/thevirtualkrishnaaa)
