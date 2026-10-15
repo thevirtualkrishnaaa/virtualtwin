@@ -13,6 +13,28 @@ const genai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Allow the GitHub Pages site and local testing to call the chat API
+const ALLOWED_ORIGINS = [
+  'https://thevirtualkrishnaaa.github.io',
+  'http://localhost:3000',
+  'http://localhost:3100',
+];
+
+// Render (and most hosts) sit behind a proxy; trust it so rate limits use the visitor's real IP
+app.set('trust proxy', 1);
+
+app.use('/api', (req, res, next) => {
+  const origin = req.headers.origin;
+  if (origin && ALLOWED_ORIGINS.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+    res.setHeader('Vary', 'Origin');
+    res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  }
+  if (req.method === 'OPTIONS') return res.sendStatus(204);
+  next();
+});
+
 app.use(express.json({ limit: '10kb' }));
 app.use(express.static(__dirname));
 
