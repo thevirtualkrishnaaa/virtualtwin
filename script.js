@@ -22,6 +22,12 @@ const vkMessages = document.getElementById('vkMessages');
 const vkInput = document.getElementById('vkInput');
 const vkSend = document.getElementById('vkSend');
 
+// Where the chat server lives.
+// Local testing uses the same server; the live GitHub Pages site calls the hosted server on Render.
+const VK_API_BASE = (location.hostname === 'localhost' || location.hostname === '127.0.0.1')
+  ? ''
+  : 'https://virtualtwin-chat.onrender.com';
+
 let vkHistory = [];
 let vkBusy = false;
 
@@ -74,7 +80,7 @@ async function vkSendMessage(overrideText) {
   const typingEl = vkAddTyping();
 
   try {
-    const res = await fetch('/api/chat', {
+    const res = await fetch(`${VK_API_BASE}/api/chat`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ message: text, history: vkHistory }),
