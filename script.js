@@ -26,7 +26,7 @@ const vkSend = document.getElementById('vkSend');
 // Local testing uses the same server; the live GitHub Pages site calls the hosted server on Render.
 const VK_API_BASE = (location.hostname === 'localhost' || location.hostname === '127.0.0.1')
   ? ''
-  : 'https://YOUR-SERVICE-NAME.onrender.com'; // <- replace with your Render URL
+  : 'https://virtualtwin-chat.onrender.com';
 
 let vkHistory = [];
 let vkBusy = false;
