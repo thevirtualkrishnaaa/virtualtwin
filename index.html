@@ -16,21 +16,24 @@
   <!-- TOP BAR -->
   <header class="topbar">
     <a href="#overview" class="brand"><span class="brand-mark">SJ</span> Saikrishna Jella</a>
-    <nav class="top-nav" aria-label="Sections">
-      <a href="#overview">Overview</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#education">Education</a>
-      <a href="#contact">Contact</a>
-    </nav>
     <div class="top-actions">
       <span class="status-pill"><span class="pulse"></span> Open to data &amp; BI roles</span>
       <a class="btn btn-ghost" href="https://linkedin.com/in/saikrishnajella09" target="_blank" rel="noopener">LinkedIn</a>
     </div>
   </header>
 
-  <div class="layout">
+  <div class="shell">
+
+    <!-- LEFT NAVIGATION RAIL -->
+    <nav class="rail" aria-label="Sections">
+      <a href="#overview" class="rail-link is-active"><span class="rail-icon">🏠</span><span class="rail-label">Home</span></a>
+      <a href="#experience" class="rail-link"><span class="rail-icon">💼</span><span class="rail-label">Work</span></a>
+      <a href="#projects" class="rail-link"><span class="rail-icon">🚀</span><span class="rail-label">Projects</span></a>
+      <a href="#skills" class="rail-link"><span class="rail-icon">🛠️</span><span class="rail-label">Skills</span></a>
+      <a href="#education" class="rail-link"><span class="rail-icon">🎓</span><span class="rail-label">Study</span></a>
+      <a href="#contact" class="rail-link"><span class="rail-icon">✉️</span><span class="rail-label">Contact</span></a>
+    </nav>
+
     <main class="main">
 
       <!-- OVERVIEW -->
@@ -154,7 +157,10 @@
             <div class="tags">
               <span class="tag">React 19</span><span class="tag">TypeScript</span><span class="tag">Tailwind</span><span class="tag">Firebase</span><span class="tag">Recharts</span>
             </div>
-            <a class="project-link" href="https://github.com/thevirtualkrishnaaa" target="_blank" rel="noopener">View on GitHub →</a>
+            <div class="project-links">
+              <a href="https://tallioweb2026.z28.web.core.windows.net" target="_blank" rel="noopener" title="Open the live Tallio app">Live app →</a>
+              <a href="https://github.com/thevirtualkrishnaaa" target="_blank" rel="noopener" title="View the code on GitHub">Code →</a>
+            </div>
           </article>
 
           <article class="project">
@@ -239,43 +245,39 @@
 
       <footer class="footer">© 2026 Saikrishna Jella · London, UK</footer>
     </main>
+  </div>
+</div>
 
-    <!-- CHAT: docked panel on wide screens, floating on mobile -->
-    <aside class="dock" aria-label="Chat with VirtualKrishna">
-      <div class="dock-head"><span class="pulse"></span> Ask VirtualKrishna</div>
-      <p class="dock-sub">An AI version of me, answering from my CV and projects.</p>
-
-      <button id="vkLauncher" class="vk-launcher" aria-label="Chat with VirtualKrishna">
-        <span class="vk-launcher-icon">💬</span>
-        <span class="vk-launcher-text">Chat with VirtualKrishna</span>
-      </button>
-
-      <div id="vkPanel" class="vk-panel">
-        <div class="vk-header">
-          <div class="vk-header-info">
-            <span class="vk-avatar">SJ</span>
-            <div>
-              <span class="vk-name">VirtualKrishna</span>
-              <span class="vk-status"><span class="vk-dot"></span> AI version of Saikrishna</span>
-            </div>
-          </div>
-          <button id="vkClose" class="vk-close" aria-label="Close chat">✕</button>
-        </div>
-        <div id="vkMessages" class="vk-messages">
-          <div class="vk-msg vk-msg-bot">Hey, I'm VirtualKrishna 👋 Ask me about Foundermatcha, Tallio, or my skills.</div>
-        </div>
-        <div class="vk-suggest">
-          <button class="vk-chip" data-q="What do you do at Foundermatcha?">Foundermatcha work</button>
-          <button class="vk-chip" data-q="Tell me about Tallio.">About Tallio</button>
-          <button class="vk-chip" data-q="What are you looking for next?">Next role</button>
-        </div>
-        <div class="vk-input-row">
-          <input id="vkInput" class="vk-input" type="text" placeholder="Ask about my experience…" maxlength="500" autocomplete="off" />
-          <button id="vkSend" class="vk-send" aria-label="Send">→</button>
+<!-- ASK VIRTUALKRISHNA: small bot button that opens a mini chat -->
+<div class="vk-widget">
+  <div id="vkPanel" class="vk-panel" role="dialog" aria-label="Chat with VirtualKrishna">
+    <div class="vk-header">
+      <div class="vk-header-info">
+        <span class="vk-avatar">SJ</span>
+        <div>
+          <span class="vk-name">VirtualKrishna</span>
+          <span class="vk-status"><span class="vk-dot"></span> AI version of Saikrishna</span>
         </div>
       </div>
-    </aside>
+      <button id="vkClose" class="vk-close" aria-label="Close chat">✕</button>
+    </div>
+    <div id="vkMessages" class="vk-messages">
+      <div class="vk-msg vk-msg-bot">Hi, I'm VirtualKrishna 👋 Pick a question or ask your own.</div>
+    </div>
+    <div class="vk-suggest">
+      <button class="vk-chip" data-q="What do you do at Foundermatcha?">Foundermatcha work</button>
+      <button class="vk-chip" data-q="Tell me about Tallio.">About Tallio</button>
+      <button class="vk-chip" data-q="What are your main skills?">Skills &amp; tools</button>
+      <button class="vk-chip" data-q="What are you looking for next?">Next role</button>
+    </div>
+    <div class="vk-input-row">
+      <input id="vkInput" class="vk-input" type="text" placeholder="Ask about my experience…" maxlength="500" autocomplete="off" />
+      <button id="vkSend" class="vk-send" aria-label="Send">→</button>
+    </div>
   </div>
+  <button id="vkLauncher" class="vk-launcher" aria-label="Ask VirtualKrishna" title="Ask VirtualKrishna">
+    <span class="vk-launcher-icon">🤖</span>
+  </button>
 </div>
 
   <script src="script.js"></script>

@@ -14,7 +14,21 @@ filterButtons.forEach(btn => {
   });
 });
 
-// ── VirtualKrishna Chat Widget ──────────────────────
+// ── Left rail: highlight the section in view ────────
+const railLinks = document.querySelectorAll('.rail-link');
+const railSections = [...railLinks].map(a => document.querySelector(a.getAttribute('href')));
+
+function updateRail() {
+  let current = 0;
+  railSections.forEach((sec, i) => {
+    if (sec && window.scrollY + 140 >= sec.offsetTop) current = i;
+  });
+  railLinks.forEach((a, i) => a.classList.toggle('is-active', i === current));
+}
+window.addEventListener('scroll', updateRail, { passive: true });
+updateRail();
+
+// ── Ask VirtualKrishna mini chat ────────────────────
 const vkLauncher = document.getElementById('vkLauncher');
 const vkPanel = document.getElementById('vkPanel');
 const vkClose = document.getElementById('vkClose');
@@ -33,13 +47,17 @@ let vkBusy = false;
 
 function vkOpen() {
   vkPanel.classList.add('open');
+  vkLauncher.setAttribute('aria-expanded', 'true');
   vkInput.focus();
 }
 function vkCloseChat() {
   vkPanel.classList.remove('open');
+  vkLauncher.setAttribute('aria-expanded', 'false');
 }
 
-vkLauncher.addEventListener('click', vkOpen);
+vkLauncher.addEventListener('click', () => {
+  vkPanel.classList.contains('open') ? vkCloseChat() : vkOpen();
+});
 vkClose.addEventListener('click', vkCloseChat);
 
 function vkAddMessage(text, role) {
@@ -101,7 +119,7 @@ async function vkSendMessage(overrideText) {
     vkHistory = vkHistory.slice(-12);
   } catch (err) {
     typingEl.remove();
-    vkAddError('Could not reach the server. Check that the chat backend is running.');
+    vkAddError('Could not reach the server. It may be waking up; try again in a minute.');
   } finally {
     vkBusy = false;
     vkSend.disabled = false;
